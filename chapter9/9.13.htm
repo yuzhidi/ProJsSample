@@ -1,0 +1,20 @@
+<html>
+<head><title>DOM2 事件模型</title></head>
+<body>
+<h1>DOM2 事件模型基本语法</h1><p>
+<p id="myElement">点击这里</p>
+<p>而不是这里</p>
+
+<script type="text/javascript">
+<!-- 
+function handleClick(e) 
+{
+  alert("Got a click: " + e); 
+ // IE5 与 IE6中，会显示一个undefined，因为它们不支持DOM2
+}
+document.getElementById("myElement").onclick = handleClick;
+//-->
+</script>
+</body>
+</html>
+

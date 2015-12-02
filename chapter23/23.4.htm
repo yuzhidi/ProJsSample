@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>UFO!</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script src="layerlib.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--
+/* return the x-coordinate of the layer named layername */
+function getX(layername)
+{
+  var theLayer = getElement(layername);
+  if (layerobject)
+    return(parseInt(theLayer.left));
+   else
+    return(parseInt(theLayer.style.left));
+}
+
+/* return the y-coordinate of layer named layerName */
+function getY(layerName)
+{
+   var theLayer = getElement(layerName);
+
+   if (layerobject)
+     return(parseInt(theLayer.top));
+   else
+     return(parseInt(theLayer.style.top));
+}
+
+/* set animation speed and step */
+var step = 3;
+var framespeed = 35;
+
+/* set animation boundaries */
+var maxtop = 100;
+var maxleft = 100;
+var maxbottom = 400;
+var maxright = 600;
+var move;
+/* move up until boundary */
+function up()
+{
+  var currentY = getY('ufo');
+  if (currentY> maxtop)
+  {
+    currentY-=step;
+    setY('ufo',currentY);
+    move=setTimeout("up()",(1000/framespeed));
+  }
+  else
+    clearTimeout(move);
+}
+
+/* move down until boundary */
+function down()
+{
+  var currentY = getY('ufo');
+  if (currentY < maxbottom)
+  {
+    currentY+=step;
+    setY('ufo',currentY);
+    move=setTimeout("down()",(1000/framespeed));
+  }
+  else
+    clearTimeout(move);
+}
+
+/* move left until boundary */
+function left()
+{
+  var currentX = getX('ufo');
+  if (currentX> maxleft)
+  {
+    currentX-=step;
+    setX('ufo',currentX);
+    move=setTimeout("left()",(1000/framespeed));
+  }
+  else
+    clearTimeout(move);
+}
+
+/* move right until boundary */
+function right()
+{
+  var currentX = getX('ufo');
+  if (currentX < maxright)
+  {
+    currentX+=step;
+    setX('ufo',currentX);
+    move=setTimeout("right()",(1000/framespeed));
+  }
+  else
+    clearTimeout(move);
+}
+//-->
+</script>
+</head>
+<body background="star.gif">
+
+<div id="ufo" style="position:absolute; left:200px; top:60px; width:241px;
+ height:178px; z-index:1;">
+ <img src="ufo.gif" width="148" height="141" alt="ufo!">
+</div>
+
+<form action="#" method="get">
+   <input type="button" value="向上" onclick="up();">
+   <input type="button" value="向下" onclick="down();">
+   <input type="button" value="向左" onclick="left();">
+   <input type="button" value="向右" onclick="right();">
+   <input type="button" value="停止" onclick="clearTimeout(move);">
+</form>
+</body>
+</html>
+

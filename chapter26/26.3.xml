@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="test.xsl"?>
+<example>
+  <demo>Look </demo>
+  <demo>formatting  </demo>
+  <demo> XML </demo>
+  <demo>as HTML</demo>
+</example>

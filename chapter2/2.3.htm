@@ -1,0 +1,11 @@
+<script language="javascript">
+<!--
+var posInf = Number.POSITIVE_INFINITY; //为posInf赋值最大值
+var negInf = Number.NEGATIVE_INFINITY; //为negInf赋值最小值
+alert(posInf == negInf); //二者比较，实际为Infinity与-infinity比较结果为false
+alert(posInf == -negInf); //Infinity与-(-Infinity)比较，结果为true
+alert(posInf == -negInf+1);//最大值加1,仍为最大值，结果为true
+alert(posInf == -negInf*100);//最大值乘以100，仍为最大值，结果为true
+alert(Number.MAX_VALUE);//显示可表示的最大值：1.7976931348623157e+308
+//-->
+</script>

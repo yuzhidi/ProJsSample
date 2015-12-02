@@ -1,0 +1,54 @@
+<html>
+<head>
+<script language="JavaScript">
+<!--
+  function addRow()    //函数：添加行
+{
+    var tableObj = document.getElementById("mainTb");   //获取表格相关属性
+    //设置行、id、名称、单位、按钮等相关变量
+var tableBodyObj = document.getElementById("mainBody");
+    var newRowObj = document.createElement("tr");
+　　newRowObj.id = "row" + (tableObj.rows.length-1);
+    var newNameCell = document.createElement("td");
+    var newCompanyCell = document.createElement("td");
+    var newButtonCell = document.createElement("td");
+    //设置名称、单位、按钮等相关属性
+newNameCell.innerHTML = document.getElementById("newName").value;
+    newCompanyCell.innerHTML = document.getElementById("newCompany").value;
+    newButtonCell.innerHTML = '<input type="button" value="删除" onclick=
+"deleteRow('+(tableObj.rows.length-1)+')">';
+    newRowObj.appendChild(newNameCell);  //添加“姓名”表元
+    newRowObj.appendChild(newCompanyCell); //添加“单位”表元
+    newRowObj.appendChild(newButtonCell);  //添加“删除”表元
+    tableBodyObj.appendChild(newRowObj);  //添加新行
+  }
+  function deleteRow(index)          //函数：删除行
+{
+    var tableBodyObj = document.getElementById("mainBody");
+    var rowObj = document.getElementById('row'+index);
+    tableBodyObj.removeChild(rowObj); //删除行
+  }
+-->
+</script>
+</head>
+<body  style="margin:40px">
+<table id="mainTb" border="1">
+  <tbody id="mainBody">
+    <tr><th width="80">姓名</th><th width="250">单位</th></tr>
+    <tr id="row0"><td>张三</td><td>北京中软科技公司</td>
+<!--通过onclick调用deleteRow(0)删除行，其中0是该行序号-->
+<td><input type="button" value="删除" onclick="deleteRow(0)"></td></tr>
+    <tr id="row1"><td>李四</td><td>上海南嘉食品公司</td>
+<!--通过onclick调用deleteRow(1)删除行，其中1是该行序号-->
+<td><input type="button" value="删除" onclick="deleteRow(1)"></td></tr>
+  </tbody>
+</table>
+<div>
+<span id="new">姓名
+<input type="text" name="newName" id="newName"><br>
+单位<input type="text" id="newCompany">
+<input type="button" value="新增" onclick="addRow()">
+</span>
+</div>
+</body>
+</html>

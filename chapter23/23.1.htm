@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>擦除效果!</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<style type="text/css">
+<!--
+.intro { position:absolute;
+         left:0px;
+         top:0px;
+         layer-background-color:red;
+         background-color:red;
+         border:0.1px solid red;
+         z-index:10; }
+
+#message { position: absolute;
+           top: 50%;
+           width: 100%;
+           text-align: center;
+           font-size: 48pt;
+           color: green;
+           z-index: 1;}
+//-->
+</style>
+<script type="text/javascript" src="layerlib.js"></script>
+</head>
+<body>
+<div id="leftLayer" class="intro">&nbsp;</div>
+<div id="rightLayer" class="intro">&nbsp;</div>
+
+<div id="message">JavaScript Fun</div>
+
+<script type="text/javascript">
+<!--
+var speed = 20;
+
+/* Calculate screen dimensions */
+ if (window.innerWidth)
+       theWindowWidth = window.innerWidth;
+ else if ((document.body) && (document.body.clientWidth))
+       theWindowWidth = document.body.clientWidth;
+ if (window.innerHeight)
+       theWindowHeight = window.innerHeight;
+ else if ((document.body) && (document.body.clientHeight))
+       theWindowHeight = document.body.clientHeight;
+       
+      /* nasty hack to deal with doctype switch in IE */
+ if (document.documentElement  && document.documentElement.clientHeight && 
+document.documentElement.clientWidth)
+     {
+         theWindowHeight = document.documentElement.clientHeight;
+         theWindowWidth = document.documentElement.clientWidth;
+     }
+
+/* cover the screen with the layers */
+   setWidth('leftLayer', parseInt(theWindowWidth/2));
+   setHeight('leftLayer', theWindowHeight);
+   setX('leftLayer',0);
+  setWidth('rightLayer', parseInt(theWindowWidth/2));
+  setHeight('rightLayer', theWindowHeight);
+  setX('rightLayer', parseInt(theWindowWidth/2));
+
+  clipright = 0;
+  clipleft =  parseInt(theWindowWidth/2);
+
+function openIt()
+{
+  window.scrollTo(0,0);
+  clipright+=speed;
+  setClip('rightLayer',0,theWindowWidth, theWindowHeight,clipright);
+
+  clipleft-=speed;
+  setClip('leftLayer',0,clipleft,theWindowHeight,0);
+
+  if (clipleft<0)
+    clearInterval(stopIt)
+}
+
+function doTransition()
+{
+  stopIt=setInterval("openIt()",100);
+}
+window.onload = doTransition;
+//-->
+</script>
+</body>
+</html>

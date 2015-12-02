@@ -1,0 +1,21 @@
+<html>
+<head><title></title></head>
+<body>
+<h1></h1><p>
+<script language="javascript">
+<!--
+for (var i=0; i<navigator.plugins.length; i++)
+{
+  document.write("Name: " + navigator.plugins[i].name + "<br>");
+  document.write("Description: " + navigator.plugins[i].description + "<br>");
+  document.write("Supports: ");
+  for (var j=0; j<navigator.plugins[i].length; j++)
+    document.write(" &nbsp; " + navigator.plugins[i][j].type);
+    // 添加空格，是为了使该类型更易被辨认
+  document.write("<br><br>");
+}
+//-->
+</script>
+</body>
+</html>
+

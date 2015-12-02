@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Simple Flash control example (Netscape and Mozilla only)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+var pluginReady = false;
+var pluginAvailable = false;
+if (document.all) alert("Demo for netscape only");
+function detectPlugin()
+{
+  // if the appropriate plugin exists and is configured
+  // then it is ok to interact with the plugin
+  if (navigator.plugins &&
+      ((navigator.plugins["Shockwave Flash"] &&
+        navigator.plugins["Shockwave Flash"]["application/x-shockwave-flash"])
+      ||
+       (navigator.plugins["Shockwave Flash 2.0"] &&
+        navigator.plugins["Shockwave Flash 2.0"]["application/x-shockwave-flash"]))
+     )
+    pluginAvailable = true;
+}
+
+function changeFrame(i)
+{
+  if (!pluginReady || !pluginAvailable)
+    return;
+  if (i>=0 && i<document.demo.TotalFrames())
+    // function expects an integer, not a string!
+    document.demo.GotoFrame(parseInt(i));
+}
+
+function play()
+{
+  if (!pluginReady || !pluginAvailable)
+    return;
+  if (!document.demo.IsPlaying())
+    document.demo.Play();
+}
+function stop()
+{
+  if (!pluginReady || !pluginAvailable)
+    return;
+  if (document.demo.IsPlaying())
+    document.demo.StopPlay();
+}
+function rewind()
+{
+  if (!pluginReady || !pluginAvailable)
+    return;
+  if (document.demo.IsPlaying())
+    document.demo.StopPlay();
+
+  document.demo.Rewind();
+}
+function zoom(percent)
+{
+  if (!pluginReady || !pluginAvailable)
+    return;
+  if (percent> 0)
+   document.demo.Zoom(parseInt(percent));    
+   // method expects an integer
+}
+//-->
+</script>
+</head>
+<body onload="pluginReady=true; detectPlugin();">
+<h2>Flash 播放控制器</h2>
+<!-- Note: embed tag will not validate against -->
+<embed id="demo" name="demo"
+ src="What&who.swf"
+ width="400" height="300" play="false" loop="false"
+ pluginspage="http://www.macromedia.com/go/getflashplayer"
+ swliveconnect="true"></embed><p>
+ 
+<form name="controlform" id="controlform" action="#" method="get">
+<input type="button" value="开始" onclick="play();">
+<input type="button" value="暂停" onclick="stop();">
+<input type="button" value="停止" onclick="rewind();"><p>
+<input type="text" name="whichframe" id="whichframe">
+<input type="button" value="跳转到帧"
+ onclick="changeFrame(controlform.whichframe.value);"><p>
+<input type="text" name="zoomvalue" id="zoomvalue">
+<input type="button" value="Change Zoom"
+ onclick="缩放(controlform.zoomvalue.value);">
+<br>
+</form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<head><title>事件处理器的作用域</title></head>
+<body>
+<h1>事件处理器的作用域之二</h1><p>
+<script type="text/javascript">
+<!-- 
+window.name = "My Window";
+function showThisName()
+{
+  alert(this.name);
+}
+
+//-->
+</script>
+<p name="My Paragraph" onmouseover="showThisName();">
+移动鼠标到这里！</p>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<head><title>document.close()和document.open()</title></head>
+<body>
+<h1>document.close()和document.open()</h1><p>
+这是原来的窗口
+<script type="text/javascript">
+var mywindow = window.open("","newwin", "height=300,width=300");
+mywindow.document.open();
+mywindow.document.write("<html><head><title>Test</title></head><br>");
+mywindow.document.write("<body><h1>Hello!</h1><p>这是新打开的窗口</body></html>");
+mywindow.document.close();
+</script>
+</body>
+</html>
+

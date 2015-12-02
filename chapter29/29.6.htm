@@ -1,0 +1,126 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>javascript实现级联选择</title>
+<style type="text/css">
+body, td
+{
+font-family: 宋体;
+font-size: 12px;
+}
+</style>
+<script language="javascript">
+<!--
+function  Menu(theform,menuid) 
+{
+// 变量定义:
+//定义菜单级别MenuClass,菜单长度数组MenuLenArr,菜单名称数组MenuArr,
+//下级菜单数组SubMenuArr，菜单ID数组MenuIdArr
+var MenuClass,MenuLenArr,MenuArr,SubMenuArr,MenuIdArr
+var splitchar1,splitchar2       //定义分隔符：splitchar1,splitchar2
+var arr,subarr,arrlen           //定义临时数组,子数组,数组长度,
+//变量赋值：首先定义数组，然后对数组赋值
+MenuArr=new Array()
+MenuLenArr=new Array()
+SubMenuArr=new Array()
+MenuIdArr=new Array()
+MenuArr[1]="欧洲|||亚洲|||非洲|||大洋洲|||北美洲|||南美洲"
+MenuArr[2]="欧洲###德国|||欧洲###法国|||北美洲###美国|||北美洲###加拿大|||亚洲###中国"  
+MenuArr[3]="中国###北京|||中国###上海|||美国###华盛顿|||美国###纽约|||德国###柏林" 
+MenuArr[4]="北京###朝阳区|||上海###徐汇区|||广州###天河区|||纽约###曼哈顿区"
+MenuIdArr[1]="zhou"
+MenuIdArr[2]="guo"
+MenuIdArr[3]="shi"
+MenuIdArr[4]="qu"
+MenuClass=4                             //4级菜单
+splitchar1="|||";
+splitchar2="###";
+// 生成数组
+for(iii=1;iii<=MenuClass;iii++){
+arr=MenuArr[iii].split(splitchar1);
+len=arr.length;
+subarr=new Array()
+for(i=0;i<len;i++){
+subarr[i]=arr[i].split(splitchar2);
+}
+len=subarr.length;
+SubMenuArr[iii]=subarr 
+MenuLenArr[iii]=len
+}
+//============更改下级菜单======================
+var self,submenu,thislen,thisarr	
+//self本级菜单，submenu子菜单
+//theform:所在表单对象[type:object]；menuid:本级菜单级别ID，如1级菜单则为1
+self=eval("document."+theform.name+"."+MenuIdArr[menuid])	
+submenu=eval("document."+theform.name+"."+MenuIdArr[menuid+1])	
+thislen=MenuLenArr[menuid+1]
+thisarr=SubMenuArr[menuid+1]
+submenu.length=0
+submenu.options.add(new Option( "-----请选择-----",""));     
+for  (i=0;i<thislen;i++) { 
+if  (thisarr[i][0]  ==  self.value) {
+submenu.options.add(new Option(thisarr[i][1],  thisarr[i][1]));    
+}    
+} 
+submenu.options[0].selected=true
+//============更改下级以下菜单==============
+var kkk
+for(kkk=menuid+2;kkk<=MenuClass;kkk++)	{		
+submenu=eval("document."+theform.name+"."+MenuIdArr[kkk])	
+submenu.length=0
+submenu.options.add(new Option( "-----请选择-----",""));     	
+submenu.options[0].selected=true
+}
+}
+//-->
+</script>
+<form name="form1" method="post" action="">
+<table width="90%" border="0" align="center" cellpadding="2" 
+cellspacing="1" bgcolor="#CCCCCC">
+<tr bgcolor="F1F1F1">
+<td height="24" colspan="2" align="center">用JavaScript实现级联选择</td>
+</tr>
+<tr bgcolor="#FFFFFF">
+<td width="15%" height="24" align="center">所 在 洲:</td>
+<td>
+<select name="zhou" id="zhou" onChange="Menu(this.form,1);">
+<option value="" selected>-----请选择-----</option>
+<option value='欧洲'>欧洲</option>
+<option value='亚洲'>亚洲</option>
+<option value='非洲'>非洲</option>
+<option value='大洋洲'>大洋洲</option>
+<option value='北美洲'>北美洲</option>
+<option value='南美洲'>南美洲</option>
+</select>
+</td>
+</tr>
+<tr bgcolor="#FFFFFF">
+<td height="24" align="center">国　　家:</td>
+<td>
+<select name="guo" id="select" onChange="Menu(this.form,2);">
+<option value="" selected>-----请选择-----</option>
+</select>
+</td>
+</tr>
+<tr bgcolor="#FFFFFF">
+<td height="24" align="center">城　　市:</td>
+<td>
+<select name="shi" id="select2" onChange="Menu(this.form,3);">
+<option value="" selected>-----请选择-----</option>
+</select>
+</td>
+</tr>
+<tr bgcolor="#FFFFFF">
+<td height="24" align="center">地　　区:</td>
+<td>
+<select name="qu" id="select3">
+<option value="" selected>-----请选择-----</option>
+</select>
+</td>
+</tr>
+<tr bgcolor="F1F1F1">
+<td height="24" colspan="2" align="center">&nbsp;</td>
+</tr>
+</table>
+</form>
+</html>

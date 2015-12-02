@@ -1,0 +1,13 @@
+<script language="javascript">
+var strSrc="xxa1b01c001yya2b02c002zz";
+var re=/a(\d)b(\d{2})c(\d{3})/gi;
+var arr;
+arr = strSrc.match(re);
+for(var i=0;i<arr.length;i++)
+{
+if(i < arr.length-1)
+document.write("[\"" + arr[i] + "\",");
+else
+document.write("\"" + arr[i] + "\"]");
+}
+</script>

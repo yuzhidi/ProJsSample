@@ -1,0 +1,27 @@
+<script language="javascript">
+<!--
+var m=1;          //为变量m赋值1
+var n=m;          //使用值的复制操作：变量n使用了一个独立的值1
+//下面的函数可以说明使用值的操作
+function add_total(total,x)
+{
+total=total+x;      //这里只改变了total的内部副本
+return total;
+}
+//下面调用该函数，给它传递m和n存放的数值
+//m的值将被复制，该值在函数中名称为total
+//该函数会把n的一个副本值加到m的副本中
+//这种操作不会影响到函数外部n的原始值
+var q=add_total(m,n);
+document.write("函数运行结果为："+q+"<p>");
+document.write("函数运行后m值为："+m+"<p>");
+document.write("函数运行后n值为："+n+"<p>");
+//下面是使用值的运算。
+//1是程序中的一个独立数值，用它和变量m中存放的值进行比较
+//在比较操作中，将对两个数字进行字节比较，看它们是否相同
+if(m==1){
+n=2;           //如果m的值与直接量1相同，则n的值变为2
+}
+document.write("现在的n值为："+n);
+//-->
+</script>

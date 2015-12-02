@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Slide-in Menu Example</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<style type="text/css">
+<!--
+.menu { background: blue;  padding: 0px; margin: 0px;
+        border-style: solid; border-width: 2px;
+        border-color: lightblue; position: absolute;
+        text-align: left; width: 150px; top: 80px;
+        z-index: 100;  }
+.menuitem { color: white; position: relative;
+            display: block; font-style: normal; margin: 0px;
+            padding: 2px 15px 2px 10px; font-size: smaller;
+            font-family: sans-serif; font-weight: bold;
+            text-decoration: none;  }
+a.menuitem:hover { background-color: darkblue; }
+-->
+</style>
+<script type="text/javascript">
+<!--
+var leftmost = -120;
+var rightmost = 5;
+var interval = null;
+var DOMCapable;
+document.getElementById ? DOMCapable = true : DOMCapable = false;
+function scrollRight(menuName)
+{
+  var leftPosition;
+  if (DOMCapable)
+    {
+        leftPosition = parseInt(document.getElementById(menuName).style.left);
+     if (leftPosition  >= rightmost)
+      {
+       // if the menu is already fully shown, stop scrolling
+       clearInterval(interval);
+       return;
+      }
+        else
+         {
+       // else move it 5 more pixels in
+       leftPosition += 5;
+          document.getElementById(menuName).style.left = leftPosition+"px";
+       }
+     }
+}
+
+function scrollLeft(menuName)
+{
+  if (DOMCapable)
+    {
+        leftPosition = parseInt(document.getElementById(menuName).style.left);
+     if (leftPosition  < leftmost)
+      {
+       // if menu is fully retracted, stop scrolling
+       clearInterval(interval);
+       return;
+      }
+        else
+         {
+          // else move it 5 more pixels out
+          leftPosition -= 5;
+          document.getElementById(menuName).style.left = leftPosition+"px";
+         }
+      }
+}
+
+function startRightScroll(menuName)
+{
+   clearInterval(interval);
+   interval = setInterval('scrollRight("' + menuName + '")', 30);
+}
+function startLeftScroll(menuName)
+{
+  clearInterval(interval);
+  interval = setInterval('scrollLeft("' + menuName + '")', 30);
+}
+//-->
+</script>
+</head>
+<body onload="document.getElementById('slider').style.left=leftmost+'px';">
+<!-- 隐藏的菜单 -->
+<div class="menu" id="slider"
+ onmouseover="startRightScroll('slider');"
+ onmouseout="startLeftScroll('slider');">
+ <h3 class="menuitem"><h2><u>图书列表</u></h2></h3>
+  <a class="menuitem" href="b01.html">精美散文</a>
+  <a class="menuitem" href="b02.html">古典文学</a>
+  <a class="menuitem" href="b03.html">国外名著</a>
+  <a class="menuitem" href="b04.html">名家合集</a>
+</div>
+<center><h1>欢迎光临我的小站</h1></center>
+</body>
+</html> 

@@ -1,0 +1,42 @@
+<html>
+<head>
+<script language="JavaScript"><!--
+  function addRow() {       //添加行
+    var tableObj = document.getElementById("mainTb");  //获取表格相关属性
+    //设置行、名称、单位、按钮等相关变量
+    var newRowObj = tableObj.insertRow(tableObj.rows.length);
+    var newNameCell = newRowObj.insertCell(newRowObj.cells.length);
+    var newCompanyCell = newRowObj.insertCell(newRowObj.cells.length);
+    var newButtonCell = newRowObj.insertCell(newRowObj.cells.length);
+    //添加“姓名”表元
+    newNameCell.innerHTML = document.getElementById("newName").value;
+    //添加“单位”表元
+    newCompanyCell.innerHTML = document.getElementById("newCompany").value;
+    //添加“删除”表元
+    newButtonCell.innerHTML = '<input type="button" value="删除" onclick=
+"deleteRow('+(tableObj.rows.length-1)+')">';
+  }
+  function deleteRow(index) {  //删除行
+    var tableObj = document.getElementById("mainTb");  //获取表格相关属性
+    tableObj.deleteRow(index);  //删除指定行
+  }
+//-->
+</script>
+</head>
+<body  style="margin:40px">
+<table id="mainTb" border="1">
+  <tr><th width="80">姓名</th><th width="250">单位</th></tr>
+  <tr id="row0"><td>张三</td><td>北京中软科技公司</td>
+<td><input type="button" value="删除" onclick="deleteRow(0)"></td></tr>
+  <tr id="row1"><td>李四</td><td>上海南嘉食品公司</td>
+<td><input type="button" value="删除"onclick="deleteRow(1)"></td></tr>
+</table><br>
+<div>
+<span id="new">
+姓名：<input type="text" name="newName" id="newName"><br>
+单位：<input type="text" id="newCompany">&nbsp;
+<input type="button" value="新增" onclick="addRow()">
+</span>
+</div>
+</body>
+</html>

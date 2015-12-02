@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Document Color Test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+function setColors(form)
+{
+with (form)
+{
+document.bgColor = backgroundColor.value;
+document.fgColor = textColor.value;
+document.alinkColor = activeLinkColor.value;
+document.linkColor = linkColor.value;
+document.vlinkColor = visitedLinkColor.value;
+}
+}
+//-->
+</script>
+</head>
+<body bgcolor="red" text="black" link="blue" alink="yellow" vlink="purple">
+<h1>文档颜色属性应用</h1>
+<h2>测试链接</h2>
+<a href="fakeURL.htmp" onclick="return false">未访问过的超级链接</a><br>
+<a href="#" onclick="return false">单击验证活动超级链接的颜色</a><br>
+<a href="#">访问过的超级链接</a><br>
+<form name="colors" id="colors" action="#" method="get">
+<h2>页面颜色</h2>
+背景颜色: 
+<input type="text" name="backgroundColor" id="backgroundColor" value="red">
+<br>
+文本颜色: 
+<input type="text" name="textColor" id="textColor" value="black"><br>
+<h2>超级链接颜色</h2>
+未访问过的: 
+<input type="text" name="linkColor" id="linkColor" value="blue"><br>
+当前活动的: 
+<input type="text" name="activeLinkColor" id="activeLinkColor" value="yellow"
+><br>
+已访问过的:
+<input type="text" name="visitedLinkColor" id="visitedLinkColor" value="purple"
+><br>
+<input type="button" value="设置颜色" onclick="setColors(this.form);">
+</form>
+</body>
+</html>
+

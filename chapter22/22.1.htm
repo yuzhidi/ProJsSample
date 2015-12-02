@@ -1,0 +1,23 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>图像演示</title>
+</head>
+<body>
+<center>
+<form name="form1">
+<img name="img1" border="0" src="1145.GIF" width="295" height="224">
+<br><br>
+<!--通过将按钮的onclick事件绑定在ChangeImage()函数上实现图像变换-->
+<input type=button value="改变图像" onclick="ChangeImage()">
+</form>
+</center>
+</body>
+<script language=javascript>
+<!--
+   function ChangeImage() {
+     document.form1.img1.src="1146.gif";  //通过name引用图像的src属性
+   }
+//-->
+</script>
+</html>

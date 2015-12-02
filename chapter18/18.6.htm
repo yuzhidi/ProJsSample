@@ -1,0 +1,39 @@
+<html>
+<head><title>多项选择控件示例</title></head>
+<body>
+<form name=form1>
+<center>
+<h1>多项选择控件示例</h1>
+<h7>请选择列表中的多项</h7>
+<br><br>
+<textarea name=Textarea cols=20 rows=10></textarea>
+<br><br>
+<select name=Select1 onChange=selectionMade() MULTIPLE>
+<option>Selection 1
+<option>Selection 2
+<option>Selection 3
+<option>Selection 4
+<option>Selection 5
+</select>
+</center>
+</form>
+</body>
+<script language=javascript>
+<!--
+function selectionMade()
+{
+//document.form1.Textarea.value="";//若保留此行代码，则只显示最后一次选择的结果
+with(document.form1.Select1)
+{
+for(var loop_index=0;loop_index<length;loop_index++)
+{
+if(options[loop_index].selected)
+{
+document.form1.Textarea.value+=options[loop_index].text+"\n\r";
+}
+}
+}
+}
+//-->
+</script>
+</html>

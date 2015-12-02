@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ie>
+<head>
+<title>IE Specific Browser Detect</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<style>
+<!--
+@media all { IE\:clientCaps {behavior:url(#default#clientCaps)}} 
+-->
+</style>
+</head>
+<body>
+<ie:clientcaps id="oClientCaps">
+<script type="text/jscript">
+<!--
+document.write("<h2>显示器性能</h2>");
+//显示客户端相应的显示器性能
+document.write("显示器高度: "  + oClientCaps.height + "<br>");
+document.write("显示器宽度: "  + oClientCaps.width + "<br>");
+document.write("可用高度: "  + oClientCaps.availHeight + "<br>");
+document.write("可用宽度: "  + oClientCaps.availWidth + "<br>");
+document.write("色位: "  + oClientCaps.colorDepth + "位<br>");
+document.write("<h2>浏览器性能</h2>");
+//显示客户端相应的浏览器性能
+document.write("允许 Cookies? "  + oClientCaps.cookieEnabled + "<br>");
+document.write("允许 Java? "  + oClientCaps.javaEnabled + "<br>");
+document.write("<h2>系统与连接性能</h2>");
+//显示客户端相应的系统与连接性能
+document.write("连接类型: "  + oClientCaps.connectionType + "<br>");
+document.write("CPU: "  + oClientCaps.cpuClass + "<br>");
+document.write("平台: "  + oClientCaps.platform + "<br>");
+document.write("<h2>语言性能</h2>");
+//显示客户端相应的语言性能
+document.write("系统语言: "  + oClientCaps.systemLanguage + "<br>");
+document.write("浏览器语言: "  + oClientCaps.userLanguage + "<br>");
+// -->
+</script>
+</body>
+</html>

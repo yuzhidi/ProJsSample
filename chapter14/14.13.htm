@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Common Window Methods</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+var myWindow;
+function openIt() //函数：打开
+{ //要打开的新窗口的特征
+ myWindow = open('','mywin','height=300,width=300,scrollbars=yes');
+ //新窗口页面HTML头部信息
+ myWindow.document.writeln("<html><head><title>fun</title></head><body>");
+ //新窗口页面HTML页面信息
+ myWindow.document.writeln("<table bgcolor='#ffcc66' border='1' width='600'><tr><td>");
+ myWindow.document.writeln("<h1>JavaScript Window Methods</h1><br><br><br><br><br><br><br><br><br><br>");
+ myWindow.document.writeln("</tr></td></table></body></html>");
+ myWindow.document.close();  //关闭输入
+ myWindow.focus();          //获取焦点
+}
+function moveIt()  //函数：移动
+{
+ if ((window.myWindow) && (myWindow.closed == false))
+   myWindow.moveTo(document.testform.moveX.value,document.testform.moveY.value);
+}   
+function scrollIt()   //函数：滚动
+{
+ if ((window.myWindow) && (myWindow.closed == false))
+    myWindow.scrollTo(document.testform.scrollX.value,
+document.testform.scrollY.value);
+}   
+function resizeIt()   //函数：改变大小
+{
+ if ((window.myWindow) && (myWindow.closed == false))
+    myWindow.resizeTo(document.testform.resizeX.value,
+document.testform.resizeY.value);
+}   
+//-->
+</script>
+</head>
+<body onload="openIt();">
+<h1 align="center">窗口方法测试</h1>
+<hr>
+<form name="testform" id="testform" action="#" method="get">
+<!--调用openIt()打开新窗口，并写入内容-->
+<input type="button" value="打开窗口" onclick="openIt();">
+<input type="button" value="关闭窗口" onclick="myWindow.close();">
+<input type="button" value="获得焦点" onclick="if (myWindow) myWindow.focus();">
+<input type="button" value="失去焦点" onclick="if (myWindow) myWindow.blur();"><br><br>
+<input type="button" value="向上移" onclick="if (myWindow) myWindow.moveBy(0,-10);">
+<input type="button" value="向左移" onclick="if (myWindow) myWindow.moveBy(-10,0);">
+<input type="button" value="向右移" onclick="if (myWindow) myWindow.moveBy(10,0);">
+<input type="button" value="向下移" onclick="if (myWindow) myWindow.moveBy(0,10);">
+<br><br>
+X: <input type="text" size="4" name="moveX" id="moveX" value="0"> 
+Y: <input type="text" size="4" name="moveY" id="moveY" value="0">
+<!--调用moveIt()将窗口移动到指定位置-->
+<input type="button" value="移动到" onclick="moveIt();">
+<br><br>
+<input type="button" value="向上滚" onclick="if (myWindow) myWindow.scrollBy(0,-10);">
+<input type="button" value="向左滚" onclick="if (myWindow) myWindow.scrollBy(-10,0);">
+<input type="button" value="向右滚" onclick="if (myWindow) myWindow.scrollBy(10,0);">
+<input type="button" value="向下滚" onclick="if (myWindow) myWindow.scrollBy(0,10);"><br><br>
+X: <input type="text" size="4" name="scrollX" id="scrollX" value="0"> 
+Y: <input type="text" size="4" name="scrollY" id="scrollY" value="0">
+<!--调用scrollIt()将窗口滚动到指定位置-->
+<input type="button" value="滚动到" onclick="scrollIt();"><br><br>
+<input type="button" value="垂直变大" onclick="if (myWindow) myWindow.resizeBy(0,-10);">
+<input type="button" value="水平变窄" onclick="if (myWindow) myWindow.resizeBy(-10,0);">
+<input type="button" value="水平变宽" onclick="if (myWindow) myWindow.resizeBy(10,0);">
+<input type="button" value="垂直变小" onclick="if (myWindow) myWindow.resizeBy(0,10);"><br>
+X: <input type="text" size="4" name="resizeX" id="resizeX" value="0"> 
+Y: <input type="text" size="4" name="resizeY" id="resizeY" value="0">
+<!--调用rsizeIt()将窗口调整至指定大小-->
+<input type="button" value="改变大小" onclick="resizeIt();">
+<br><br>
+</form>
+</body>
+</html>

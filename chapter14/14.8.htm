@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>创建窗口</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+function createFeatureString()     //函数：创建特征字符串
+{
+var featurestring = "";
+var numelements = document.windowform.elements.length;
+for (var i= 0; i < numelements; i++)
+if ( (document.windowform.elements[i].type == "checkbox")  &&
+                                    (document.windowform.elements[i].checked) )
+featurestring += document.windowform.elements[i].name+"=yes,";
+//获取窗口大小及位置信息
+featurestring += "height="+document.windowform.height.value+",";
+featurestring += "width="+document.windowform.width.value+",";
+featurestring += "top="+document.windowform.top.value+",";
+featurestring += "left="+document.windowform.left.value+",";
+featurestring += "screenx="+document.windowform.screenX.value+",";
+featurestring += "screeny="+document.windowform.screenY.value;
+return featurestring;  //返回窗口特征字符串内容
+}
+function openWindow()           //函数：打开窗口
+{  //调用createFeatureString()获取特征字符串
+   var features = createFeatureString();
+   var url = document.windowform.windowurl.value;  //获取窗口URL
+   var name = document.windowform.windowname.value; //获取窗口名称
+   theNewWindow = window.open(url,name,features); //打开新窗口
+   if (theNewWindow)
+    //打开新窗口
+    document.windowform.jscode.value = 
+"window.open('"+url+"','"+name+"','"+features+"');"
+   else
+     //显示代码无效
+     document.windowform.jscode.value = "Error: JavaScript Code Invalid";
+ }
+function closeWindow()      //函数：关闭窗口
+{
+ if (window.theNewWindow)  //如果是新窗口
+     theNewWindow.close();  //关闭窗口
+}
+//-->
+</script>
+</head>
+<body>
+<form name="windowform" id="windowform" action="#" method="get">
+<h2>基本属性</h2>
+URL地址: <input type="text" name="windowurl" id="windowurl" size="30" maxlength="300" value="http://www.yahoo.com.cn"><br>
+窗口名称: <input type="text" name="windowname" id="windowname" size="30"
+              maxlength="300" value="secondwindow"><br>
+<h2>大小</h2>
+高度:<input type="text" name="height" id="height" size="4" maxlength="4" value="100">
+宽度:<input type="text" name="width" id="width" size="4" maxlength="4"
+value="100"><br>
+<h2>位置</h2>
+距顶部: <input type="text" name="top" id="top" size="4" maxlength="4" value="100">
+距左边: <input type="text" name="left" id="left" size="4" maxlength="4" value="100"> (IE)<br><br>
+ScreenX:<input type="text" name="screenX" id="screenX" size="4" maxlength="4"
+              value="100">
+ScreenY:<input type="text" name="screenY" id="screenY" size="4" maxlength="4"
+              value="100"> (Netscape)<br>
+<h2>显示特征</h2>
+Always Lowered: <input type="checkbox" name="alwaysLowered" id="alwaysLowered">
+Always Raised: <input type="checkbox" name="alwaysRaised" id="alwaysRaised">
+Dependent: <input type="checkbox" name="dependent" id="dependent">
+Directories: <input type="checkbox" name="directories" id="directories">
+Hotkeys: <input type="checkbox" name="hotkeys" id="hotkeys">
+Location: <input type="checkbox" name="location" id="location">
+Menubar: <input type="checkbox" name="menubar" id="menubar"><br>
+Resizable: <input type="checkbox" name="resizable" id="resizable">
+Scrollbars: <input type="checkbox" name="scrollbars" id="scrollbars">
+Titlebar: <input type="checkbox" name="titlebar" id="titlebar">
+Toolbar: <input type="checkbox" name="toolbar" id="toolbar">
+Z-Lock: <input type="checkbox" name="z-lock" id="z-lock">
+<br><br>
+<!--通过onclick调用openWindow()函数和closeWindow()函数，用来打开和关闭窗口-->
+<input type="button" value="创建窗口" onclick="openWindow();">
+<input type="button" value="关闭窗口" onclick="closeWindow();">
+<br><br>
+<hr>
+<h2>JavaScript Window.open 语句</h2>
+<textarea name="jscode" id="jscode" rows="4" cols="50"></textarea>
+</form>
+</body>
+</html>

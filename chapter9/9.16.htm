@@ -1,0 +1,19 @@
+<html>
+<head><title>取消默认动作之一</title></head>
+<body>
+<h1>取消默认动作之二</h1><p>
+请点击 <a id="mylink" href="http://www.javascriptref.com">此链接</a>.
+<script type="text/javascript">
+<!--
+// 仅用于 DOM 2 浏览器, IE6 不支持
+
+function killClicks(event)
+{
+    event.preventDefault();
+}
+document.addEventListener("click", killClicks, true);
+document.getElementById("mylink").onclick = function() {alert("A click event got through to the link node");}
+// -->
+</script>
+</body>
+</html>

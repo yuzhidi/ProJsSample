@@ -1,0 +1,22 @@
+<script language="javascript">
+<!--
+function MyArray(size)
+{
+this.length = size;
+for(var i=0;i<size;i++)
+{
+this[i]="";
+}
+}
+var arr = new MyArray(2);
+arr[0] = "Ã·ÐÁ";
+arr[1] = "Mengite";
+arr[2] = "ÃÉÐËÍø¼¼";
+var x, str = "";
+for(x in arr)
+{
+str += x + ":"+arr[x]+"\n";
+}
+alert(str);
+//-->
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DOM Test</title>
+</head>
+<body>
+<p id="p1" align="center">A paragraph of</p> 
+<p <em>text</em> is just an example</p>
+<script language="javascript">
+<!--
+//使用getElementById()方法取得结点p1 
+var currentElement = document.getElementById('p1');
+//存储结点p1的名称
+var msg = "nodeName: "+currentElement.nodeName+"\n";
+//存储结点p1的类型
+msg += "nodeType: "+currentElement.nodeType+"\n";
+//存储结点p1的值
+msg += "nodeValue: "+currentElement.nodeValue+"\n";
+alert(msg);
+//-->
+</script>
+</body>
+</html>

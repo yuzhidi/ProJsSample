@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>All Test</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" >
+</head>
+<body>
+<!-- comment 1 -->
+<h1>This is a heading</h1>
+<hr >
+<p id="test">This is a test.<em>This is just a test</em>!</p>
+<a href="http://www.yahoo.com.cn">a link</a>
+<p>Another paragraph</p>
+<badtag>bad very bad!</badtag>
+<script type="text/javascript">
+<!--
+if (!document.all)
+// 读取文档中的所有元素并存储
+document.all = document.getElementsByTagName("*");
+// 存储文档中所有元素的总个数
+var allTags ="Document.all.length="+document.all.length+"\n"; 
+for (i = 0; i < document.all.length; i++)
+// 依次读取文档中各元素的名称，并依次存储
+allTags += document.all[i].tagName + "\n";
+alert(allTags); // 依次显示文档中元素总数以及各元素名称
+// 显示文档中id为test的元素的内容
+alert("Test All: "+document.all['test'].innerHTML);
+//-->
+</script>
+</body>
+</html>

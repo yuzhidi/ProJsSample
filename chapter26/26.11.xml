@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="staff.css" type="text/css"?>
+<directory xmlns:html="http://www.w3.org/1999/xhtml"
+           xmlns:xlink="http://www.w3.org/1999/xlink">
+<html:form id="myform" name="myform">
+<html:hr />
+<html:label>Name: <html:input type="text" name="namefield" id="namefield"
+ size="50" /></html:label><html:br />
+<html:label>Title: <html:input type="text" name="titlefield" id="titlefield"
+ size="30" /></html:label><html:br />
+<html:label>Phone: <html:input type="text" name="phonefield" id="phonefield"
+ size="20" /></html:label><html:br />
+<html:label>Email: <html:input type="text" name="emailfield" id="emailfield"
+ size="20" /></html:label><html:br />
+<html:input type="button" value="add record" onclick="addElement()" />
+<html:input type="button" value="delete last record"
+ onclick="deleteLastElement()" />
+<html:hr />
+</html:form>
+<employee>
+     <name>Fred Brown</name>
+     <title>Widget Washer</title>
+     <phone>(010) 12345678</phone>
+     <email>fbrown@democompany.com</email>
+</employee>
+<employee>
+     <name>Cory Richards</name>
+     <title>Toxic Waste Manager</title>
+     <phone>(010) 12345676</phone>
+     <email>mrichards@democompany.com</email>
+</employee>
+<employee>
+     <name>Tim Powell</name>
+     <title>Big Boss</title>
+     <phone>(010) 12345675</phone>
+     <email>tpowell@democompany.com</email>
+</employee>
+<employee>
+     <name>Samantha Jones</name>
+     <title>Sales Executive</title>
+     <phone>(010) 12345674</phone>
+     <email>jones@democompany.com</email>
+</employee>
+<employee>
+     <name>Eric Roberts</name>
+     <title>Director of Technology</title>
+     <phone>(010) 12345673</phone>
+     <email>eric@democompany.com</email>
+</employee>
+<employee>
+     <name>Frank Li</name>
+     <title>Marketing Manager</title>
+     <phone>(020) 12345677</phone>
+     <email>fli@democompany.com</email>
+</employee>
+<html:script src="26.12.js" />
+</directory>

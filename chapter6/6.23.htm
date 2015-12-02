@@ -1,0 +1,17 @@
+<script language="javascript">
+<!--
+var curr_time = new Date();
+with(curr_time)
+{
+//定义变量，并为其赋值为当前年份，后加中文“年”字标识
+var strDate = getYear()+1900+"年";  
+//取当前月份。注意月份从0开始，所以需加1，后加中文“月”字标识
+strDate +=getMonth()+1+"月";
+strDate +=getDate()+"日"; //取当前日期，后加中文“日”字标识
+strDate +=getHours()+":"; //取当前小时
+strDate +=getMinutes()+":"; //取当前分钟
+strDate +=getSeconds(); //取当前秒数
+alert(strDate);  //结果输出
+}
+//-->
+</script>

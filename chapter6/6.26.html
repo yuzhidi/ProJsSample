@@ -1,0 +1,27 @@
+<script language="javascript">
+<!--
+function Student(name,age,sex)
+{
+this.name = name;
+this.age = age;
+this.sex = sex;
+this.out = outFunc;
+this.a=age+10;
+}
+function outFunc()
+{
+document.write(this.name+":"+this.age+"&nbsp;"+this.sex+"；");
+}
+//创建对象实例并调用
+var student1 = new Student("李明",18,"男");
+student1.out();
+document.write(student1.a);
+var student2 = new Student("王飞",16,"男");
+student2.out();
+document.write("<p>"); //换行
+var student3 = new Student("赵琳",17,"女");
+student3.out();
+var student4 = new Student("孙皓",19,"男");
+student4.out();
+//-->
+</script>

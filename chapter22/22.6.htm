@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>按钮翻转示例</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+function preloadImage(url) 
+{
+  var i = new Image();
+  i.src = url;
+  return i;
+}
+
+if (document.images)
+{  // Preload images
+  var homeon = preloadImage("blue.gif");
+  var homeoff = preloadImage("red.gif");
+  var productson = preloadImage("green.gif");
+  var productsoff = preloadImage("black.gif");}
+
+// On input "myimage" this function sets the src of the image with
+// this name to the value of myimageon.src
+function mouseOn(imgName)
+{
+  if (document.images)
+    document[imgName].src = eval(imgName + "on.src");
+}
+
+// On input "myimage" this function sets the src of the image with
+// this name to the value of myimageoff.src
+function mouseOff(imgName)
+{
+  if (document.images)
+    document[imgName].src = eval(imgName + "off.src");
+}
+//-->
+</script>
+</head>
+<body>
+<center>
+<h1>按钮翻转示例</h1>
+<br>
+
+<a href="23.3.htm" onmouseover="mouseOn('home');"
+   onmouseout="mouseOff('home');"><img src="1145.gif" height="100"
+   width="200" name="home" id="home" border="0" alt="23.3"></a>
+
+<br>
+
+<a href="23.4.htm" onmouseover="mouseOn('products');"
+   onmouseout="mouseOff('products');"><img src="1146.gif" height="100"
+   width="200" name="products" id="products" border="0" alt="23.4"></a>
+</center>
+</body>
+</html>

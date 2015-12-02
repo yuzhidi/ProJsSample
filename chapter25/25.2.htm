@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>User Online Demo</title>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+var commandURL = "http://demos.javascriptref.com/isuseronline.php?";
+// 由于请求不必立即完成，因此，
+//可以使用一个计时器进行周期性地完成检测。
+var timer = null;
+var currentRequest = null;
+// 发送URL给出的RPC，然后，
+//当RPC完成时，调用callback参数指定的函数
+function sendRPC(url, callback) 
+{
+//如果已收到一个请求，则将其清除
+if (currentRequest) 
+clearTimeout(timer);
+currentRequest = new Image();
+currentRequest.src = url;             //发送RPC
+setTimeout(callback, 50);         // 在50毫秒内完成检测
+}
+
+// 检测RPC是否已完成。
+//如果已完成，检测image的尺寸
+// 如果没有完成，在50毫秒内调用其自身再次进行检测
+function readResponse() 
+{
+// 如果image尚未下载
+if (!currentRequest.complete) 
+{
+timer = setTimeout(readResponse, 50);  //设置计时器
+return;                               //返回
+}
+// 如果image已经下载，则进行检测
+if (currentRequest.height == 1)
+alert("User is not online");   //显示用户不在线
+else
+alert("User is online");      //显示用户在线
+timer = currentRequest = null; //计时器置空
+}
+// 检测用户是否在线。
+//当一个响应达到后即调用readResponse函数
+function isUserOnline(user) 
+{
+  var params = "user=" + user;
+  sendRPC(commandURL + params, readResponse);
+  return false; //返回错误
+}
+//-->
+</script>
+<!-- 测试代码 -->
+User: Smeagol (<a href="#" onclick="return isUserOnline('smeagol');">check
+                                       online status</a>) [should be false] <br>
+User: Deagol (<a href="#" onclick="return isUserOnline('deagol');">check
+                                       online status</a>) [should be true]
+
+</body>
+</html>

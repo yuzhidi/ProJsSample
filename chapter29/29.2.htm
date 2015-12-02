@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>位置固定的对联广告</title>
+</head>
+<body>
+<center><h1>位置固定的对联广告</h1></center>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>
+ </p>
+ <script language="JavaScript">
+function initEcAd() {
+document.all.AdLayer1.style.posTop = -200;
+document.all.AdLayer1.style.visibility = 'visible'
+document.all.AdLayer2.style.posTop = -200;
+document.all.AdLayer2.style.visibility = 'visible'
+MoveLeftLayer('AdLayer1');
+MoveRightLayer('AdLayer2');
+}
+function MoveLeftLayer(layerName) {
+var x = 5;
+var y = 100;// 左侧广告距离页首高度
+var diff = (document.body.scrollTop + y - document.all.AdLayer1.style.posTop)*.40;
+var y = document.body.scrollTop + y - diff;
+eval("document.all." + layerName + ".style.posTop = parseInt(y)");
+eval("document.all." + layerName + ".style.posLeft = x");
+setTimeout("MoveLeftLayer('AdLayer1');", 20);
+}
+function MoveRightLayer(layerName) {
+var x = 5;
+var y = 100;// 右侧广告距离页首高度
+var diff = (document.body.scrollTop + y - document.all.AdLayer2.style.posTop)*.40;
+var y = document.body.scrollTop + y - diff;
+eval("document.all." + layerName + ".style.posTop = y");
+eval("document.all." + layerName + ".style.posRight = x");
+setTimeout("MoveRightLayer('AdLayer2');", 20);
+}
+
+document.write("<div id=AdLayer1 style='position: absolute;visibility:hidden;z-index:1'><a href='http://localhost' target='_blank'><img src=ad-01.gif border='0'></a></div>"
++"<div id=AdLayer2 style='position: absolute;visibility:hidden;z-index:1'><a href='http://localhost' target='_blank'><img src=ad-01.gif border='0'></a></div>");
+initEcAd()// JavaScript Document
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Disabled Field Demo</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+</head>
+<body>
+<center><h1>屏蔽表单域示例</h1>
+当选择 no 时表单不可用
+</center>
+<form name="myform" id="myform" action="#" method="get">
+Color your robot? &nbsp; &nbsp;
+Yes <input type="radio" name="colorrobot" id="colorrobot" 
+     value="yes" checked="true"
+onclick="myform.robotcolor.disabled=false;robotcolorlabel.style.color=
+'black';">
+No <input type="radio" name="colorrobot" id="colorrobot"
+     value="no" 
+onclick="myform.robotcolor.disabled=true;robotcolorlabel.style.color='gray';
+">
+<br><br>
+<label id="robotcolorlabel">
+Color: 
+<select name="robotcolor" id="robotcolor">
+   <option selected>Silver</option>
+   <option selected>Green</option>
+   <option selected>Red</option>
+   <option selected>Blue</option>
+   <option selected>Orange</option>
+</select>
+</label>
+</form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<head>
+<script language="JavaScript">
+<!--
+function update(field)
+{
+var result=field.value;    //保存输入的内容
+//输出表达式及其结果，并用“=”连接。其中第一个""的作用是保证输出为字符串
+var output=""+result+"="+eval(result); 
+//将上述计算的结果输出至另一框架中
+parent.parent.frames[1].output.displayResult(output);
+}
+//-->
+</script>
+</head>
+<body>
+<form method=post>在这里输入四则运算式：<p>
+<input type=text name="input" onChange="update(this);">
+</form>
+</body>
+</html>

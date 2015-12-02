@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Limited Text Area Take 2</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+function checkLimit(field, limit)
+{
+ if (field.value.length> limit)
+  {
+   alert("允许最多输入 "+limit+" 个字符！");
+   // Truncate at the limit
+   var revertField = field.value.slice(0, limit-1);
+   field.value = revertField;
+   field.focus();
+  }
+}
+//-->
+</script>
+</head>
+<body>
+<h1>限制输入长度的文本区</h1>
+下面的文本区允许输入100个以内的字符。若输入超过10个或以上，单击该区域以外的页面时，多出的部分会被删除。
+
+<form id="myform" name="myform" action="#" method="get">
+<label>Comments:<br>
+<textarea id="comments" name="comments" rows="8" cols="40"
+onchange="checkLimit(this, 100);">
+</textarea>
+</label>
+</form>
+</body>
+</html>

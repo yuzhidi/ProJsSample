@@ -1,0 +1,87 @@
+<html>
+<head><title>使用elements[]数组</title></head>
+
+<body>
+<form name="form1">
+<center><h1>请选择一件商品</h1></center>
+<br><br>
+<!--单选按钮-->
+<table border bgcolor=cyan width=300 align=left>
+<tr><td><input type=radio name=RadioGroup onClick=radio1Clicked()>Plain</tr></td>
+<tr><td><input type=radio name=RadioGroup onClick=radio2Clicked()>Chocolate</tr></td>
+<tr><td><input type=radio name=RadioGroup onClick=radio3Clicked()>Jelly</tr></td>
+<tr><td><input type=radio name=RadioGroup onClick=radio4Clicked()>Cream</tr></td>
+<tr><td><input type=radio name=RadioGroup onClick=radio5Clicked()>Strawberry</tr></td>
+</table>
+<!--复选框-->
+<table border bgcolor=cyan width=300 align=left>
+<tr><td><input type=checkbox name=Check onClick=calculateCost()>Plain</tr></td>
+<tr><td><input type=checkbox name=Check onClick=calculateCost()>Sprinkless</tr></td>
+<tr><td><input type=checkbox name=Check onClick=calculateCost()>Powerdered sugar</tr></td>
+<tr><td><input type=checkbox name=Check onClick=calculateCost()>Frosted</tr></td>
+<tr><td><input type=checkbox name=Check onClick=calculateCost()>Filled</tr></td>
+</table>
+<br clear=all><br>
+<!--显示价格的文本框-->
+<center><input type=text name=TextBox size=30 align=center></center>
+</form>
+</body>
+
+<script language="javascript">
+<!--
+//单击一个单选按钮时，需要清除原复选框，并选中其对应的复选框
+function radio1Clicked(){
+clearCheckBoxes()
+setCheckBox(1)
+cost=calculateCost()
+}
+function radio2Clicked(){
+clearCheckBoxes()
+setCheckBox(4)
+calculateCost()
+}
+function radio3Clicked(){
+clearCheckBoxes()
+setCheckBox(3)
+setCheckBox(5)
+calculateCost()
+}
+function radio4Clicked(){
+clearCheckBoxes()
+setCheckBox(2)
+setCheckBox(3)
+setCheckBox(5)
+calculateCost()
+}
+function radio5Clicked(){
+clearCheckBoxes()
+setCheckBox(4)
+setCheckBox(5)
+calculateCost()
+}
+//清除原已选中的复选框
+function clearCheckBoxes()
+{
+for(var loop_index=0;loop_index<=4;loop_index++)
+{
+document.form1.elements[loop_index+5].checked=false;
+}
+}
+//设置新的复选框
+function setCheckBox(number){
+document.form1.elements[number-1+5].checked=true;
+}
+//计算商品价格
+function calculateCost()
+{
+var cost=0;
+for(var loop_index=0;loop_index<=4;loop_index++)
+{
+if(document.form1.elements[loop_index+5].checked){cost=cost+.50;}
+}
+//计算并输出商品价格
+document.form1.TextBox.value="Total cost: $"+cost;
+}
+//-->
+</script>
+</html>

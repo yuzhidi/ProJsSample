@@ -1,0 +1,14 @@
+<script language="javascript">
+<!--
+var book = new Object();//创建一个对象，并保存在一个变量中
+book.title = "Book1";//设置该对象的一个属性
+//设置更多的属性，注意其层次关系
+book.chapter1 = new Object();
+book.chapter1.title ="第一章";
+book.chapter1.pages = 25;
+book.chapter2 = {title:"第二章",pages:30};
+//调用该对象的某些属性
+alert("输出结果："+"\n\t\n\t"+book.title+"\n\t"+"Chapter 1: "
++book.chapter1.title+"\n\t"+"chapter 2: "+ book.chapter2.title);
+//-->
+</script>

@@ -1,0 +1,18 @@
+<html>
+<head><title> document.links[].href </title></head>
+<body>
+<h1> document.links[].href </h1><p>
+<!--第一个，也是惟一一个链接，下面的代码对它进行操作-->
+<a href="http://www.yahoo.com">Test Link</a>
+<script language="javascript">
+<!--
+//显示未改变前的链接目标
+document.write("<p>改变前的目标："+document.links[0].href);
+//改变链接目标为http://www.google.com
+document.links[0].href='http://www.google.com';
+//显示改变后的链接目标
+document.write("<p>改变后的目标："+document.links[0].href);
+//-->
+</script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>用AJAX实现级联选择</title>
+    <style type="text/css">
+    body, td
+    {
+      font-family: 宋体;
+      font-size: 12px;
+    }
+    </style>
+<script language="JavaScript">
+<!--
+function GetResult(str,classid)
+{
+/*
+*--------------- GetResult(str,classid) -----------------
+* GetResult(str) 
+* 功能:通过XMLHTTP发送请求,返回结果.
+* 参数:str,字符串,发送条件;classid,数字,菜单级别
+* 实例:GetResult(document.all.userid.value,1);
+*--------------- GetResult(str,classid) -----------------
+*/
+//定义菜单级数，菜单ID数组，菜单对应字段数组
+var MenuIdArr,MenuFieldArr,MenuClass
+MenuIdArr= new Array()
+MenuFieldArr=new Array()
+MenuClass=4
+
+MenuIdArr[1]="sel1"
+MenuIdArr[2]="sel2"
+MenuIdArr[3]="sel3"
+MenuIdArr[4]="sel4"
+
+MenuFieldArr[1]="name"
+MenuFieldArr[2]="name"
+MenuFieldArr[3]="name"
+MenuFieldArr[4]="name"
+
+
+if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+    http_request = new XMLHttpRequest();
+} else if (window.ActiveXObject) { // IE
+    http_request = new ActiveXObject("Microsoft.XMLHTTP");
+}
+
+
+var linkurl="ajax_server.asp?classid="+classid+"&sel="+str+"&fieldname="+MenuFieldArr[classid+1]
+http_request.open("GET",linkurl,false);
+http_request.send(null);
+
+//服务器端处理返回的是经过escape编码的字符串.
+//在页面显示服务器查询结果
+
+var returntxt=unescape(http_request.responseText)
+if(returntxt.length>0)
+{document.all,ajax.innerHTML="服务器返回结果：<font color='red'>"+returntxt+"</font>  "}
+else
+{document.all,ajax.innerHTML=""}
+
+//通过XMLHTTP返回数据,开始构建Select.
+//BuildSel(returntxt,eval("document.all."+MenuIdArr[classid+1]))
+BuildSel(returntxt,document.getElementById(MenuIdArr[classid+1]))
+
+//============更改下下级以下菜单为空==============
+var kkk
+for(kkk=classid+2;kkk<=MenuClass;kkk++)
+	{		
+	submenu=document.getElementById(MenuIdArr[kkk])	
+	submenu.length=1
+	submenu.options[0].selected=true
+	}
+}
+
+function BuildSel(str,sel)
+{
+/*
+*--------------- BuildSel(str,sel) -----------------
+* BuildSel(str,sel) 
+* 功能:通过str构建Select.
+* 参数:str,字符串,由服务端返回的.有特定结构"字符串1|,字符串2,字符串3"
+*          也可为"字符串1序号|字符串1文本,字符串2序号|字符串2文本,字符串3序号|字符串3文本",如本例
+* 参数:sel,要构建的Select
+* 实例:BuildSel(unescape(oBao.responseText),document.all.sel2)
+*--------------- BuildSel(str,sel) -----------------
+*/
+//先清空原来的数据.
+sel.options.length=0;
+var arrstr = new Array();
+arrstr = str.split(",");
+//开始构建新的Select.
+sel.options.add(new Option( "-----请选择-----",""));  
+if(str.length>0)   
+{
+for(var i=0;i<arrstr.length;i++)
+{
+//分割字符串
+var subarrstr=new Array
+subarrstr=arrstr[i].split("|")
+//生成下级菜单
+sel.options.add(new Option(subarrstr[1],subarrstr[0])); 
+}
+sel.options[0].selected=true
+}
+
+}
+//-->
+</script>
+
+    <form name="form1" method="post" action="">
+        <table width="90%" border="0" align="center" cellpadding="2" cellspacing="1" bgcolor="#CCCCCC">
+          <tr bgcolor="F1F1F1">
+            <td height="24" colspan="2" align="center">用AJAX实现级联选择</td>
+          </tr>
+          <tr bgcolor="#FFFFFF">
+            <td width="15%" height="24" align="center">所 在 洲:</td>
+            <td><select name="sel1" id="sel1" onChange="GetResult(this.value,1)">
+               <option value="" selected>-----请选择-----</option>
+              <option value="10">亚洲</option>
+              <option value="11">欧洲</option>
+            </select></td>
+          </tr>
+          <tr bgcolor="#FFFFFF">
+            <td height="24" align="center">国　　家:</td>
+            <td><select name="sel2" id="sel2" onChange="GetResult(this.value,2)">
+               <option value="" selected>-----请选择-----</option>
+            </select></td>
+          </tr>
+          <tr bgcolor="#FFFFFF">
+            <td height="24" align="center">城　　市:</td>
+            <td><select name="sel3" id="sel3" onChange="GetResult(this.value,3)">
+               <option value="" selected>-----请选择-----</option>
+            </select></td>
+          </tr>
+          <tr bgcolor="#FFFFFF">
+            <td height="24" align="center">地　　区:</td>
+            <td><select name="sel4" id="sel4">
+               <option value="" selected>-----请选择-----</option>
+            </select></td>
+          </tr>
+          <tr bgcolor="F1F1F1">
+            <td height="24" colspan="2" align="center" id="ajax">&nbsp;</td>
+          </tr>
+	  </table>
+	    <br>
+
+</form>
+</body>
+</html>
+

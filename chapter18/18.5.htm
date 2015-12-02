@@ -1,0 +1,30 @@
+<html>
+<head><title>选择控件示例</title></head>
+<body>
+<form name=form1>
+<center>
+<h1>选择控件示例</h1>
+<h7>点选下拉列表中的一项</h7>
+<br><br>
+<input name=TextBox type=text size=30>
+<br><br>
+<select name=Select1 onChange=selectionMade()>
+<option>Selection 1
+<option>Selection 2
+<option>Selection 3
+<option>Selection 4
+<option>Selection 5
+</select>
+</center>
+</form>
+</body>
+<script language=javascript>
+<!--
+function selectionMade()
+{
+document.form1.TextBox.value="你选择了选项 "+(document.form1.Select1.selectedIndex+1);
+}
+//-->
+</script>
+
+</html>

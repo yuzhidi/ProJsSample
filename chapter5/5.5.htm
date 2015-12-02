@@ -1,0 +1,20 @@
+<Script language="javascript">
+<!--
+var x = 5;                              // 定义全局变量x
+function myFunction()
+{                                      //函数内语句开始
+  document.write("在函数体内：<br />");   //提示信息显示
+  document.write("x="+x+"<br />");        //输出此时x的值
+  document.write("x的值被改变：<br />");
+  x = 7;                                //定义与全局变量x同名的局部变量
+  document.write("x="+x+"<br />");        //输出此时x的值
+  document.write("离开函数体：<br />");   //提示信息显示
+}
+document.write("脚本程序开始：<br />");     //提示信息显示
+document.write("x="+x+"<br />");          //输出此时x的值
+myFunction();                           //调用函数
+document.write("函数返回的结果：<br />");  //提示信息显示
+document.write("x="+x+"<br />");           //输出此时x的值
+document.write("脚本程序结束。<br />");      //提示信息显示
+//-->
+</script>

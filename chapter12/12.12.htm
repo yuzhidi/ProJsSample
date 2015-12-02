@@ -1,0 +1,19 @@
+<p id="p1">This is sample <em>text</em> go ahead and create a <i>selection</i>
+ over a portion of this paragraph.</p>
+<p id="p2">Another paragraph</p>
+<p id="p3">Yet another paragraph.</p>
+<script type="text/javascript">
+<!-- // 由于IE 6不支持DOM 2,下面的代码不会被执行
+var myRange;
+if (document.createRange)
+{
+myRange = document.createRange();
+myRange.setStartBefore(document.getElementById('p1'));  //设置开始点在p1之前
+myRange.setEndAfter(document.getElementById('p2'));     //设置结束点在p2之后
+alert(myRange);
+// 在Mozilla浏览器中，此时会以高亮选择该文本
+mySelection = window.getSelection();
+mySelection.addRange(myRange);
+} 
+//-->
+</script>

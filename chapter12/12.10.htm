@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DOM HTML Editor</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" >
+<script type="text/javascript">
+<!--
+function addElement()          //函数：用来添加元素
+{
+var choice = document.htmlForm.elementList.selectedIndex;
+var theElement =
+document.createElement(document.htmlForm.elementList.options[choice].text);
+var textNode = document.createTextNode(document.htmlForm.elementText.value);
+var insertSpot = document.getElementById('addHere');
+//添加新元素
+theElement.appendChild(textNode);
+insertSpot.appendChild(theElement);
+}
+function addEmptyElement(elementName)                 //函数：用来添加空元素
+{
+var theBreak = document.createElement(elementName);
+var insertSpot = document.getElementById('addHere');
+//追加新的子结点
+insertSpot.appendChild(theBreak);
+}
+function deleteNode()          //函数：用来删除结点
+{
+var deleteSpot = document.getElementById('addHere');
+if (deleteSpot.hasChildNodes())
+{
+var toDelete = deleteSpot.lastChild;
+//移除子结点
+deleteSpot.removeChild(toDelete);
+}
+}
+function showHTML()          //函数：用来显示HTML代码
+{
+var insertSpot = document.getElementById('addHere');
+if (insertSpot.innerHTML)
+alert(insertSpot.innerHTML);   //显示输出
+else
+alert("Not easily performed without innerHTML");  //显示输出
+}
+//-->
+</script>
+</head>
+<body>
+<h1 style="text-align: center;">简单的 DOM HTML 编辑器</h1>
+<br ><br >
+<div id="addHere" style="background-color: #ffffcc; border: solid;">&nbsp;</div>
+<br ><br >
+<form id="htmlForm" name="htmlForm" action="#" method="get">
+<select id="elementList" name="elementList">    //下拉菜单：功能选择
+      <option>B</option>
+      <option>BIG</option>
+      <option>CITE</option>
+      <option>CODE</option>
+      <option>EM</option>
+      <option>H1</option>
+      <option>H2</option>
+      <option>H3</option>
+      <option>H4</option>
+      <option>H5</option>
+      <option>H6</option>
+      <option>I</option>
+      <option>P</option>
+      <option>U</option>
+      <option>SAMP</option>
+      <option>SMALL</option>
+      <option>STRIKE</option>
+      <option>STRONG</option>
+      <option>SUB</option>
+      <option>SUP</option>
+      <option>TT</option>
+      <option>VAR</option>
+</select>
+<!--通过下拉菜单插入相应元素-->
+<input type="text" name="elementText" id="elementText" value="Default" >
+<input type="button" value="添加元素" onclick="addElement();" >
+<br ><br >
+<!--通过按钮调用onclick()插入相应元素-->
+<input type="button" value="插入 <br>" onclick="addEmptyElement('BR');" >
+<input type="button" value="插入 <hr>" onclick="addEmptyElement('HR');" >
+<input type="button" value="删除元素" onclick="deleteNode();" >
+<input type="button" value="显示 HTML" onclick="showHTML();" >
+</form>
+</body>
+</html>

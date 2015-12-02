@@ -1,0 +1,19 @@
+<script type="text/javascript">
+<!--
+function openWindow() //函数：打开新窗口
+{  //通过open()打开新窗口
+secondWin= 
+open('http://www.yahoo.com','example','height=300,width=200,scrollbars=yes');
+}
+//-->
+</script>
+<form action="#" method="get">
+<!--通过onclick调用openWindow()函数打开新窗口-->
+<input type="button" value="打开窗口" onclick="openWindow();" >
+<!--如果第二个窗口已打开，则将其关闭-->
+<input type="button" value="关闭窗口" onclick="if (window.secondWin) 
+secondWin.close();" >
+<!--如果第二个窗口已打开，将其关闭；否则，提示窗口未曾打开-->
+<input type="button" value="状态检测" onclick="if (window.secondWin)
+ alert(secondWin.closed); else alert('secondWin undefined');" >
+</form>

@@ -1,0 +1,22 @@
+<script language="javascript">
+<!--
+var x; //x未赋值，其值为undefined
+var y = null; //y赋值为null
+var z = undefined;//z赋值为undefined
+document.write("x:"+x+"<br>");//显示x的值：undefined
+document.write("y:"+y+"<br>");//显示y的值:null
+document.write("z:"+z+"<br>");//显示z的值：undefined
+if (x == null) //x与null进行比较，结果为true
+  {
+  document.write(111);
+  }
+if (x == y)// x与y进行比较,结果为true
+  {
+  document.write(222);
+  }
+if (x == undefined) //x与undefined进行比较，结果为true
+  {
+  document.write(333);
+  }
+//-->
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Delete and Replace Demo</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" >
+<script type="text/javascript">
+<!-- 
+function doDelete() //删除函数
+{
+var deletePoint = document.getElementById('toDelete'); //标记要删除的结点
+if (deletePoint.hasChildNodes())  //如果含有子结点
+deletePoint.removeChild(deletePoint.lastChild); //移除其最后子结点
+}
+function doReplace() //替换函数
+{
+var replace = document.getElementById('toReplace'); //标记要替换的结点
+if (replace) //如果目标存在
+{
+//创建新结点的元素属性
+var newNode = document.createElement("strong"); 
+var newText = document.createTextNode("strong element");
+//执行追加操作
+newNode.appendChild(newText);
+//执行替换操作
+replace.parentNode.replaceChild(newNode, replace);
+}
+}
+//-->
+</script>
+</head>
+<body>
+<div id="toDelete">
+<p>This is a paragraph</p>
+<p>This is <em>another paragraph</em> to delete</p>
+<p>This is yet another paragraph</p>
+</div>
+<p>
+This paragraph has an <em id="toReplace">em element</em> in it.
+</p>
+<hr >
+<form action="#" method="get">
+<!—通过onclick事件，调用相应的删除与替换函数，完成任务-->
+<input type="button" value="删除" onclick="doDelete();" >
+<input type="button" value="替换" onclick="doReplace();" >
+</form>
+</body>
+</html>

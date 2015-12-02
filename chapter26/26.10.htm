@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>XML Demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+</head>
+<body>
+<script type="text/javascript">
+<!--
+/* 调用程序并进行读取 */
+var xmldoc = new ActiveXObject("Microsoft.XMLDOM");
+xmldoc.async = false;
+xmldoc.load("26.5.xml");
+function deleteLastElement()
+{/* 查找根元素，并删除其最后一个根结点 */
+  var rootElement = xmldoc.documentElement;
+  if (rootElement.hasChildNodes()) rootElement.removeChild(rootElement.lastChild);
+}
+function addElement()
+{
+  var rootElement = xmldoc.documentElement;
+       /* 创建雇员元素*/
+  var newEmployee = xmldoc.createElement('employee');
+       /* 创建子元素及其文本并一个个进行拼接 */
+  var newName = xmldoc.createElement('name');
+  var newNameText = xmldoc.createTextNode(document.myform.namefield.value);
+   //添加文本、名称
+  newName.appendChild(newNameText);
+  newEmployee.appendChild(newName);
+  var newTitle = xmldoc.createElement('title');
+  var newTitleText = xmldoc.createTextNode(document.myform.titlefield.value);
+    //添加标题文本、名称
+   newTitle.appendChild(newTitleText);
+   newEmployee.appendChild(newTitle);
+   var newPhone = xmldoc.createElement('phone');
+   var newPhoneText = xmldoc.createTextNode(document.myform.phonefield.value);
+    //添加电话、名称
+   newPhone.appendChild(newPhoneText);
+   newEmployee.appendChild(newPhone);
+   var newEmail = xmldoc.createElement('email');
+   var newEmailText = xmldoc.createTextNode(document.myform.emailfield.value);
+//添加E-mail、名称
+   newEmail.appendChild(newEmailText);
+   newEmployee.appendChild(newEmail);
+       /* 向文档中追加全部记录 */
+  rootElement.appendChild(newEmployee);
+}
+function dump(string)  //字符串处理与拼接
+{
+       var currentvalue=document.myform.showxml.value;
+       currentvalue+=string;
+       document.myform.showxml.value = currentvalue;
+}
+function display(node)
+{
+      var type = node.nodeType;
+      if (type == 1)
+        {  //打开标签
+          dump("\<" + node.tagName);
+           attributes = node.attributes;
+           if (attributes){
+              var countAttrs = attributes.length;
+              var index = 0;
+              while(index < countAttrs) {
+                   att = attributes[index];       
+                   if (att)
+                         dump(" " + att.name + "=" + att.value); // 如果有多个属性，则输出
+                   index++;
+                  }
+             }
+             if (node.hasChildNodes()) {
+              dump(">\n");                              // 关闭标签
+              var children = node.childNodes;                //获得子结点
+              var length = children.length;
+              var count = 0;
+              while(count < length){
+                child = children[count];
+                display(child);         // 递归遍历子结点
+                count++;
+               }
+             dump("</" + node.tagName + ">\n");
+            }
+          else  dump("/>\n");
+          }
+     else if (type == 3){           //调用dump()，对文本进行拼接
+              dump(node.data+"\n");
+         }
+    }
+//-->
+</script>
+<form id="myform" name="myform" action="#" method="get">
+<strong>XML 文档:</strong><br />
+<textarea id="showxml" name="showxml" rows="10" cols="40"></textarea>
+<br /><br /><br />
+姓名: <input type="text" name="namefield" id="namefield" size="50" /><br />
+职务: <input type="text" name="titlefield" id="titlefield" size="30" /><br />
+电话: <input type="text" name="phonefield" id="phonefield" size="20" /><br />
+Email: <input type="text" name="emailfield" id="emailfield" size="20" /><br />
+<!--通过onclick调用两个函数添加记录-->
+<input type="button" value="添加记录"
+         onclick="addElement();document.myform.showxml.value='';
+display(xmldoc.documentElement);" />
+<!--通过onclick调用两个函数删除最后一条记录-->
+<input type="button" value="删除末条记录"   
+         onclick="deleteLastElement();document.myform.showxml.value='';
+display(xmldoc.documentElement);" />
+
+<input type="button" value="重新显示 XML 文档" 
+onclick="document.myform.showxml.value='';display(xmldoc.documentElement);" />
+</form>
+<script type="text/javascript">
+<!--
+  /* show initial XML document */
+  display(xmldoc.documentElement);
+//-->
+</script>
+</body>
+</html>

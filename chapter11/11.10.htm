@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>欢迎 2</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+function sayHello()
+{
+//取输入的文字作为姓名值
+var theirname = document.myForm.userName.value;
+if (theirname != "")  //如果输入的姓名不为空
+//将问候信息框内容改为问候信息
+document.myForm.theResponse.value="欢迎 "+theirname+" 光临!";
+else //如果输入的姓名为空
+//将问候信息框内容改为提示信息
+document.myForm.theResponse.value="姓名为空，请重新输入！";
+}
+//-->
+</script>
+</head>
+<body>
+<form name="myForm" id="myForm" action="#" method="get">
+<b>请输入你的姓名：</b>
+<!----文本框：用来输入姓名-->
+<input type="text" name="userName" id="userName"  size="20"> 
+<br><br>
+<b>问候信息:</b>
+<!----文本框：用来显示问候信息-->
+<input type="text" name="theResponse" id="theResponse" size="40">
+<br><br>
+<!--“确定”按钮，其onclick事件调用sayHello()函数-->
+<input type="button" value="确定" onclick="sayHello();">
+</form>
+</body>
+</html>

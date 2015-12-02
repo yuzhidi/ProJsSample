@@ -1,0 +1,122 @@
+<html>
+<head><title>鼠标事件处理</title></head>
+<body onMouseDown="mouseDownHandler()" onMouseUp="mouseUPHandler()">
+<center>
+<form name=form1>
+<h1>鼠标事件处理示例</h1><br>
+<h2>请按住 Shift或Ctrl或Alt再单击鼠标左键</h2><br>
+<a herf="10.1.htm" onMouseOver="mousDownHandler()" onMouseOut="mouseUPHandler()">请将鼠标移至此链接</a>
+<br><br>
+<input type=text name=Textbox size=60>
+</form>
+</center>
+</body>
+<script language=javascript>
+document.onMouseDown=mouseDownHandler
+document.onMouseUp=mouseUpHandler
+function mouseDownHandler(e)
+{
+if(navigator.appName=="Microsoft Internet Explorer")
+{
+if(window.event.shiftKey&&window.event.ctrlKey)
+{
+document.form1.Textbox.value="同时按下Ctrl和Shift键并单击鼠标在"+window.event.x+","+window.event.y
+return
+}
+if(window.event.shiftKey)
+{
+document.form1.Textbox.value="按下Shift键并单击鼠标在"+window.event.x+","+window.event.y
+return
+}
+if(window.event.ctrlKey)
+{
+document.form1.Textbox.value="按下Ctrl键并单击鼠标在"+window.event.x+","+window.event.y
+return
+}
+if(window.event.altKey)
+{
+document.form1.Textbox.value="按下Alt键并单击鼠标在"+window.event.x+","+window.event.y
+return
+}
+document.form1.Textbox.value="单击鼠标左键在"+window.event.x+","+window.event.y
+}
+
+if(navigator.appName=="Netscape")
+{
+switch(e.modifiers)
+{
+case 0:
+document.form1.Textbox.value="单击鼠标左键在"+e.pageX+","+e.pageY
+break;
+case 2:
+document.form1.Textbox.value="按下Ctrl键并单击鼠标在"+e.pageX+","+e.pageY
+break;
+case 4:
+document.form1.Textbox.value="按下Shift键并单击鼠标在"+e.pageX+","+e.pageY
+break;
+case 6:
+document.form1.Textbox.value="同时按下Ctrl和Shift键并单击鼠标在"+e.pageX+","+e.pageY
+break;
+case 1:
+document.form1.Textbox.value="按下Alt键并单击鼠标在"+e.pageX+","+e.pageY
+break;
+}
+}
+}
+
+function mouseUpHandler(e)
+{
+if(navigator.appName=="Microsoft Internet Explorer")
+{
+if(window.event.shiftKey&&window.event.ctrlKey)
+{
+document.form1.Textbox.value="同时按下Ctrl和Shift键并松开鼠标在"+window.event.x+","+window.event.y；
+return；
+}
+if(window.event.shiftKey)
+{
+document.form1.Textbox.value="按下Shift键并松开鼠标在"+window.event.x+","+window.event.y；
+return；
+}
+if(window.event.ctrlKey)
+{
+document.form1.Textbox.value="按下Ctrl键并松开鼠标在"+window.event.x+","+window.event.y；
+return；
+}
+if(window.event.altKey)
+{
+document.form1.Textbox.value="按下Alt键并松开鼠标在"+window.event.x+","+window.event.y；
+return；
+}
+document.form1.Textbox.value="松开鼠标左键在"+window.event.x+","+window.event.y
+}
+
+if(navigator.appName=="Netscape")
+{
+switch(e.modifiers)
+{
+case 0:
+document.form1.Textbox.value="松开鼠标左键在"+e.pageX+","+e.pageY
+break;
+case 2:
+document.form1.Textbox.value="按下Ctrl键并松开鼠标在"+e.pageX+","+e.pageY
+break;
+case 4:
+document.form1.Textbox.value="按下Shift键并松开鼠标在"+e.pageX+","+e.pageY
+break;
+case 6:
+document.form1.Textbox.value="同时按下Ctrl和Shift键并松开鼠标在"+e.pageX+","+e.pageY
+break;
+case 1:
+document.form1.Textbox.value="按下Alt键并松开鼠标在"+e.pageX+","+e.pageY
+break;
+}
+}
+}
+
+
+
+</script>
+
+
+</html>

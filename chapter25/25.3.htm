@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>JavaScript Ref News</title>
+</head>
+<body>
+<h2>JavaScript World News Report</h2>
+<form name="newsform" id="newsform" action="#" method="get">
+Show me
+<input type="text" name="numstories" id="numstories" size="1" value="5">
+stories every 
+<input type="text" name="howoften" id="howoften" size="2" value="5">
+minutes.
+<input type="button" value="Get News" onclick="updateNews();">
+</form>
+<hr>
+<div id="news">Fetching news stories...</div>
+<br>
+<script type="text/javascript">
+<!--
+var commandURL = "http://demos.javascriptref.com/getnews.php?";
+//发送URL中给出的RPC 。服务器将返回携带所需操作的JavaScript。
+function sendRPC(url) 
+{
+var newScript = document.createElement('script');
+newScript.src = url;
+newScript.type = "text/javascript";
+document.body.appendChild(newScript);
+}
+// 通过发送RPC从服务器获取新闻信息。
+// RPC发送后，设置一个计时器来定时更新新闻信息
+function updateNews() 
+{
+var params = "numstories=" + document.newsform.numstories.value;
+sendRPC(commandURL + params);
+var checkAgain = 5 * 60 * 1000;                // 默认为5分钟
+if (parseInt(document.forms.newsform.howoften))
+    checkAgain = parseInt(document.forms.newsform.howoften) * 60 * 1000;
+setTimeout(updateNews, checkAgain);
+}
+updateNews(); //更新新闻信息
+//-->
+</script>
+</body>
+</html>

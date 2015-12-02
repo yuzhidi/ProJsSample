@@ -1,0 +1,18 @@
+<html>
+<head><title>直接在表单上调用事件</title></head>
+<body>
+<center>
+<h1>直接在表单上调用事件</h1><p>
+<form name="myForm" id="myForm" action="somecgi.cgi" method="get"
+      onsubmit="alert('onsubmit fired'); return false;">
+<input name="mySubmit" id="mySubmit"
+       type="submit" value="提 交" onclick="alert('click fired');">
+</form>
+</center>
+<script type="text/javascript"> 
+<!--
+document.forms["myForm"].mySubmit.click();
+//-->
+</script>
+</body>
+</html>

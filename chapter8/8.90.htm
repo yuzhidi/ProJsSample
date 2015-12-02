@@ -1,0 +1,26 @@
+<html><head><title>字符匹配</title>
+</head>
+<body>
+<script language="JavaScript">
+<!-- 
+   //var textString=prompt("请输入一个字符串：","");
+function inputfloat(v){  
+ var reg_expression = /[A-Z][a-z]tion/;
+   var reg_expression = /^[0-9]+\.?[0-9]*$/;
+   var result=reg_expression.test(v); 
+  // document.write("<font size='+1'><b>检查结果为："+result+"<br>");
+   if ( result){
+      document.all.t2.value="找到了正则表达的匹配。";
+   }
+   else{
+       document.all.t2.value="未找到匹配！";
+       document.all.t1.value="";
+   }
+}
+// -->
+</script>
+
+<input type="text" name="t1" onkeyup="inputfloat(value)">
+<input type="text" name="t2" width="200">
+</body>
+</html>

@@ -1,0 +1,10 @@
+import java.awt.*;
+import java.applet.*;
+public class MyApplet extends Applet
+{
+public String text="www.yahoo.com.cn";
+public void paint(graphics g)
+{
+g.drawString(text,20,20);
+}
+}

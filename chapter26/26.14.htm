@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Employee Directory using XML Data Islands</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+</head>
+<body>
+<xml id="myIsland" src="staff.xml"></xml>
+<h1 align="center">DemoCompany Directory</h1>
+<hr />
+<table width="100%" datasrc="#myIsland">
+<thead>
+      <tr>
+            <th>姓名</th>
+            <th>职务</th>
+            <th>电话</th>
+            <th>Email</th>
+      </tr>
+</thead>
+<tbody>
+      <tr>
+            <td><span datafld="name"></span></td> 
+            <td><span datafld="title"></span></td> 
+            <td><span datafld="phone"></span></td> 
+            <td><span datafld="email"></span></td> 
+      </tr>
+</tbody>
+</table>
+<script type="text/jscript">
+<!--
+/* 在数据岛中关联XML文档 */
+xmldoc = myIsland;
+function deleteLastElement()
+{
+  /*查找根元素，并删除其最后一个子结点 */
+  var rootElement = xmldoc.documentElement;
+  if (rootElement.hasChildNodes())
+      rootElement.removeChild(rootElement.lastChild);
+}
+function addElement()
+ {
+   var rootElement = xmldoc.documentElement;
+   /* 创建雇员元素*/
+   var newEmployee = xmldoc.createElement('employee');
+   /* 创建子元素及其文本值，并一个个进行拼接*/
+    var newName = xmldoc.createElement('name');
+    var newNameText = xmldoc.createTextNode(document.myform.namefield.value);
+    //添加文本、名称
+newName.appendChild(newNameText);
+    newEmployee.appendChild(newName);
+    var newTitle = xmldoc.createElement('title');
+    var newTitleText = xmldoc.createTextNode(document.myform.titlefield.value);
+    //添加标题文本、名称
+    newTitle.appendChild(newTitleText);
+    newEmployee.appendChild(newTitle);
+    var newPhone = xmldoc.createElement('phone');
+    var newPhoneText = xmldoc.createTextNode(document.myform.phonefield.value);
+    //添加电话、名称
+    newPhone.appendChild(newPhoneText);
+    newEmployee.appendChild(newPhone);
+    var newEmail = xmldoc.createElement('email');
+    var newEmailText = xmldoc.createTextNode(document.myform.emailfield.value);
+    //添加E-mail、名称
+    newEmail.appendChild(newEmailText);
+    newEmployee.appendChild(newEmail);
+    /* 向文档中追加全部记录 */
+    rootElement.appendChild(newEmployee);
+  }
+//-->
+</script>
+<form action="#" method="get" id="myform" name="myform">
+姓名: <input type="text" name="namefield" id="namefield" size="50" /><br />
+职务: <input type="text" name="titlefield" id="titlefield" size="30" /><br />
+电话: <input type="text" name="phonefield" id="phonefield" size="20" /><br />
+Email: <input type="text" name="emailfield" id="emailfield" size="20" /><br />
+<!--通过onclick调用addElement()函数添加新元素-->
+<input type="button" value="添加一条记录" onclick="addElement();" />
+<!--通过onclick调用deleteLastElement() 函数删除最后元素-->
+<input type="button" value="删除最后记录" onclick="deleteLastElement();" />
+</form>
+</body>
+</html>

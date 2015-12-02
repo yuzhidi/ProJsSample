@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>HTML Event Bindings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</head>
+<body onload='alert("Event demo loaded");' onunload='alert("Leaving demo");'>
+<h1 align="center">HTML 事件绑定</h1>
+<form action="#" method="get" onreset="alert('Form reset');" onsubmit="alert('Form submit');return false;">
+<ul>
+<li>onblur: 
+<input type="text" value="在本域单击鼠标后离开" size="40" onblur="alert('Lost focus');"><br><br></li>
+<li>onclick: <input type="button" value="点击这里" onclick="alert('Button click');"><br><br></li>
+
+<li>onchange: <input type="text" value="改变这里的内容然后离开" size="40" onchange="alert('Changed');"><br><br></li>
+
+<li>ondblclick: <input type="button" value="双击这里" ondblclick="alert('Button double-clicked');"><br><br></li>
+
+<li>onfocus: <input type="text" value="点击本域" onfocus="alert('Gained focus');"><br><br></li>
+<li>onkeydown: 
+<input type="text" value="在这里按下按键后慢慢松开" size="40" onkeydown="alert('Key down');"><br><br></li>
+
+<li>onkeypress: 
+<input type="text" value="在这里输入内容" size="40" onkeypress="alert('Key pressed');"><br><br></li>
+
+<li>onkeyup: <input type="text" value="按下一个键然后松开" size="40" onkeyup="alert('Key up');"><br><br></li>
+<li>onload:  本文档载入时会弹出一个警告对话框<br><br></li>
+
+<li>onmousedown: 
+<input type="button" value="点击后按住不放" onmousedown="alert('Mouse down');"><br><br></li>
+<li>onmousemove: 在这里移动鼠标：<a href="#" onmousemove="alert('Mouse moved');">链接</a><br><br></li>
+
+<li>onmouseout: 将鼠标放在 <a href="#" onmouseout="alert('Mouse out');">这里</a> 然后离开。
+<br><br></li>
+<li>onmouseover: 将鼠标放到这个 <a href="#" onmouseover="alert('Mouse over');">链接</a>上。<br><br></li>
+<li>onmouseup: 
+<input type="button" value="点击后并释放"  onmouseup="alert('Mouse up');"><br><br></li>
+<li>onreset: <input type="reset" value="重置本文档"><br><br></li>
+<li>onselect: <input type="text" value="选择这里的文本" size="40" onselect="alert('selected');"><br><br></li>
+<li>onsubmit: <input type="submit" value="提交测试"><br><br></li>
+<li>onunload: 通过点击这个 <a href="http://www.google.com">链接</a> 离开本文档<br><br></li>
+</ul>
+</form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<title><h1>显示页面内链接</h1></title>
+
+</head>
+<body>
+<script language="JavaScript1.2">
+<!--
+function extractlinks()
+{
+var links=document.all.tags("A")
+var total=links.length
+var win2=window.open("","","menubar,scrollbars,toolbar")
+win2.document.write("<font size='2'>一共有"+total+"个连接</font><br>")
+for (i=0;i<total;i++)
+{
+win2.document.write("<font size='2'>"+links[i].outerHTML+"</font><br>")
+}
+}
+//-->
+</script> 
+<form>
+<input type="button" onClick="extractlinks()" value="显示所有的连接">
+</form>
+
+</body>
+</html>

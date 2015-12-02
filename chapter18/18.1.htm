@@ -1,0 +1,43 @@
+<html>
+<head><title>复选框示例</title></head>
+<body>
+<form name=form1>
+<center>
+<h1>请选择一个复选框</h1>
+<table border bgcolor=cyan width=200>
+<tr><td><input type=checkbox name=check1 onclick=check1Click()>check 1</td></tr>
+<tr><td><input type=checkbox name=check2 onclick=check2Click()>check 2</td></tr>
+<tr><td><input type=checkbox name=check3 onclick=check3Click()>check 3</td></tr>
+<tr><td><input type=checkbox name=check4 onclick=check4Click()>check 4</td></tr>
+<tr><td><input type=checkbox name=check5 onclick=check5Click()>check 5</td></tr>
+</table>
+<br><br>
+<input type=text name="Textbox" size=25>
+</center>
+</form>
+</body>
+<script language="javascript">
+<!--
+function check1Click()
+{
+document.form1.Textbox.value="Check box 1 was clicked.";
+}
+function check2Click()
+{
+document.form1.Textbox.value="Check box 2 was clicked.";
+}
+function check3Click()
+{
+document.form1.Textbox.value="Check box 3 was clicked.";
+}
+function check4Click()
+{
+document.form1.Textbox.value="Check box 4 was clicked.";
+}
+function check5Click()
+{
+document.form1.Textbox.value="Check box 5 was clicked.";
+}
+//-->
+</script>
+</html>

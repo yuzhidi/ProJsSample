@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>Sequencer控件示例</TITLE>
+</HEAD>
+<BODY onLoad="startRotation()">
+<FORM NAME=form1>
+<CENTER><h1>使用Sequencer控件</h1></CENTER>
+<OBJECT ID="Image"
+        style="POSITION:ABSOLUTE;HEIGHT:300;WIDTH:300;TOP:100;LEFT:180"
+        classid="CLSID:369303C2-D7AC-11D0-89D5-00A0C90833E6">
+<PARAM NAME="Line0001" VALUE="SetLineColor(255,0,0)">
+<PARAM NAME="Line0002" VALUE="SetFillColor(0,255,0)">
+<PARAM NAME="Line0003" VALUE="SetFillStyle(1)">
+<PARAM NAME="Line0004" VALUE="Rect(-80,-80,180,180,0)">
+<PARAM NAME="Line0005" VALUE="SetFillColor(0,0, 255)">
+<PARAM NAME="Line0006" VALUE="Oval(-80,-80,180,180,0)">
+<PARAM NAME="Line0007" VALUE="SetFillColor(0,200,200)">
+<PARAM NAME="Line0008" VALUE="Pie(-80,-80,180,180,0,40,0)">
+<PARAM NAME="Line0009" VALUE="Pie(-80,-80,180,180,0,40,90)">
+<PARAM NAME="Line0010" VALUE="Pie(-80,-80,180,180,0,40,180)">
+<PARAM NAME="Line0011" VALUE="Pie(-80,-80,180,180,0,40,270)">
+</OBJECT>
+<OBJECT ID="SequencerControl" CLASSID=CLSID:B0A6BAE2-AAF0-11D0-A152-00A0C908DB96 STYLE="WIDTH:1;HEIGHT:1">
+</OBJECT>
+</FORM>
+<script language="javascript">
+<!--
+function startRotation()
+{
+document.form1.sequencerControl("ActionSet1").At(0.000,"rotateImage()",-1,0.150,1);
+document.form1.sequencerControl("ActionSet1").Play();
+}
+function ratateImage()
+{
+document.form1.Image.Rotate(0,20,10);
+}
+//-->
+</script>
+</BODY>
+</HTML>

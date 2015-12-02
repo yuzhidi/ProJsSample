@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Employee Directory</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" />
+</head>
+<body>
+<!--调用26.5.xml文档-->
+<xml id="myIsland" src="26.5.xml"></xml>
+<h1 align="center">DemoCompany Directory</h1>
+<hr/>
+<table width="100%" datasrc="#myIsland">
+<thead>
+       <tr>
+          <th>姓名</th>
+          <th>职务</th>
+          <th>电话</th>
+          <th>Email</th>
+      </tr>
+</thead>
+<tbody>
+      <tr>
+          <td><span datafld="name"></span></td> 
+          <td><span datafld="title"></span></td> 
+          <td><span datafld="phone"></span></td> 
+          <td><span datafld="email"></span></td> 
+     </tr>
+</tbody>
+</table>
+</body>
+</html>

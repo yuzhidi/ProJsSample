@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>基本的下拉菜单</title>
+</head>
+<body>
+<center>
+<h1>基本的下拉菜单</h1>
+<script type="text/javascript">
+<!--
+function redirect(menu)
+{
+  var choice = menu.selectedIndex;
+  if (choice != 0)
+    window.location = menu.options[choice].value;
+}
+// -->
+</script>
+<form name="navform" id="navform" method="post" action="redirector.cgi">
+<h3>友情链接：</h3><br>
+<select name="sites" id="sites" onchange="redirect(this);">
+<option value="" selected="seclected">选择要访问的站点</option>
+<option value="http://news.google.com">Google 新闻</option>
+<option value="http://news.yahoo.com">Yahoo! 新闻</option>
+<option value="http://club.163.com">网易社区</option>
+<option value="http://www.netxeyes.com">小榕论坛</option>
+</select>
+<noscript>
+<input type="submit" value="Go">
+</noscript>
+</form>
+</center>
+</body>
+</html>

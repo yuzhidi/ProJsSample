@@ -1,0 +1,39 @@
+<script language="javascript">
+<!--
+//下面创建一个对象来表示2006年6月10日
+//变量miu存储的是对对象的引用，而不是对象本身
+var miu=new Date(2006,06,10);
+//下面对引用进行复制操作，将得到对原始对象的一个新引用
+//两个变量引用的是同一个对象值
+var niu=miu;
+//下面通过新的引用来改变对象
+niu.setDate(18);
+//通过原始的引用可以看到对象的变化
+//下面的返回值将是18，而不是10
+miu.getDate();
+//下面使用引用进行比较操作
+//当对上面定义的两个变量进行比较操作时
+//尽管它们它们引用的日期不同，但引用是同一个对象
+if(miu == niu){   //比较两个变量是否相等
+document.write("miu==niu 结果为：");
+document.write(miu==niu);  //这里直接输出逻辑值
+}
+else{
+document.write("miu==niu 结果为：");
+document.write(miu==niu);  //这里直接输出逻辑值
+}
+//下面定义的两个变量引用的是两个不同对象
+//两个对象表示的日期完全相同
+var miu_new = new Date(2006,06,10);
+var niu_new = new Date(2006,06,10);
+//根据“引用比较”的原则，不同的对象是不相同的
+if(miu_new == niu_new){   //比较两个变量是否相等
+document.write("<p>niu_new != miu_new 结果为：");
+document.write(niu_new != miu_new);  //这里直接输出逻辑值
+}
+else{
+document.write("<p>niu_new != miu_new 结果为：");
+document.write(niu_new != miu_new);  //这里直接输出逻辑值
+}
+//-->
+</script>

@@ -1,0 +1,19 @@
+<html>
+<head><title>改变<DIV>的内容</title></head>
+<body>
+<h1>改变 &lt;DIV&gt;的内容</h1><p>
+<form action="#" method="get">
+Say Hello in: 
+<!--通过onchange改变id为thephrase 的元素的内容-->
+<select onchange="document.getElementById('thephrase').
+firstChild.data = this.options[this.selectedIndex].value;">
+<option value="Hello">English</option>
+<option value="Bonjour">French</option>
+<option value="Hola">Spanish</option>
+<option value="你好">中文</option>  
+</select>
+</form>
+<!--默认为英文的Hello-->
+<div id="thephrase">Hello</div>
+</body>
+</html>

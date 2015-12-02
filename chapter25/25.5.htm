@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Iframe RPC</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</head>
+<body>
+<form action="#" method="get">
+  <input type="text" name="username" id="username">
+  <input type="button" value="send" onclick="send(this.form.username.value);"> 
+</form>
+<h1>The Server Response</h1>
+<div id="response"></div>
+<script type="text/javascript">
+<!--
+  var theIframe = document.createElement("iframe");
+  theIframe.setAttribute("src", "");
+  theIframe.setAttribute("id", "myIframe");
+  theIframe.style.visibility='hidden';
+  document.body.appendChild(theIframe);
+function send(sendValue)
+   {
+     var newLocation = 'iframeResponse.php?sendvalue='+escape(sendValue);
+     theIframe.src = newLocation;
+   }
+function RPCComplete(msg)
+    {
+     var region = document.getElementById('response');
+     region.innerText = msg;
+    }
+//-->
+</script>
+</body>
+</html>

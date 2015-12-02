@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>图片跟随鼠标</title>
+<!-- 以下代码是设定smile的代码 -->
+<script LANGUAGE="JavaScript">
+var newtop=0
+var newleft=0
+if (navigator.appName == "Netscape") {
+layerStyleRef="layer.";
+layerRef="document.layers";
+styleSwitch="";
+}
+else
+{
+layerStyleRef="layer.style.";
+layerRef="document.all";
+styleSwitch=".style";
+}
+function doMouseMove() {
+layerName = 'iit'
+eval('var curElement='+layerRef+'["'+layerName+'"]')
+eval(layerRef+'["'+layerName+'"]'+styleSwitch+'.visibility="hidden"')
+eval('curElement'+styleSwitch+'.visibility="visible"')
+eval('newleft=document.body.clientWidth-curElement'+styleSwitch+'.pixelWidth')
+eval('newtop=document.body.clientHeight-curElement'+styleSwitch+'.pixelHeight')
+eval('height=curElement'+styleSwitch+'.height')
+eval('width=curElement'+styleSwitch+'.width')
+width=parseInt(width)
+height=parseInt(height)
+if (event.clientX > (document.body.clientWidth - 5 - width))
+{
+newleft=document.body.clientWidth + document.body.scrollLeft - 5 - width
+}
+else
+{
+newleft=document.body.scrollLeft + event.clientX
+}
+eval('curElement'+styleSwitch+'.pixelLeft=newleft')
+if (event.clientY > (document.body.clientHeight - 5 - height))
+{
+newtop=document.body.clientHeight + document.body.scrollTop - 5 - height
+}
+else
+{
+newtop=document.body.scrollTop + event.clientY
+}
+eval('curElement'+styleSwitch+'.pixelTop=newtop')
+}
+document.onmousemove = doMouseMove;
+//-->
+</script>
+</head>
+<body>
+<center>
+<h1>图片跟随鼠标示例</h1><br><br>
+</center>
+<!-- 以下代码是设定此页的鼠标样式代码 -->
+<script language="javascript">
+if (navigator.appName == "Netscape") {
+}
+else
+{
+document.write('<div ID=OuterDiv>')
+document.write('<img ID=iit src="addin.gif" STYLE="position:absolute;TOP:5pt;LEFT:5pt;Z-INDEX:10;visibility:hidden;">')
+document.write('</div>')
+}
+//-->
+</script>
+
+</body>
+</html>

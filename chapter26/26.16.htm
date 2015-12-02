@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>JavaScript RSS Reader</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<!--页面样式表-->
+<style type="text/css">
+<!--
+body {font-family:verdana,arial,helvetica,sans-serif; font-size:10pt;}
+a {color:#003399;}
+a:hover {color:#FF9900;}
+#feedOutput {border-style: solid; border-width: 1px; width: 50%; background-
+color: #FAFAD2; padding: 1em;}
+-->
+</style>
+<script type="text/javascript">
+<!--
+function readRSS(feedURL)
+{
+  var request;
+  /* 创建 XMLHttpRequest 对象*/
+  try {
+     request = new XMLHttpRequest();
+  } catch (e) {  request = new ActiveXObject("Msxml2.XMLHTTP"); }
+  try {
+  // 如果本地文件要访问 http URL
+  netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserRead");
+  } catch (e) {  /*忽略 */ }
+  request.open("GET",feedURL,false);
+  request.send(null);
+  var feed=request.responseXML;
+  var itemList = feed.getElementsByTagName('item');
+  var numItems=itemList.length;
+  /* 为项目列表创建 HTML */
+  var newULTag = document.createElement('ul');
+   for (var i=0; i< numItems; i++)
+    {
+        /* 创建一个新的项目列表 */
+        var newLITag = document.createElement('li'); 
+        /*  得到项目标题及其文本  */
+        var itemTitle = itemList[i].getElementsByTagName('title');
+        var newItemTitleTxt =
+                       document.createTextNode(itemTitle[0].firstChild.nodeValue);
+        /* 创建一个指向项目的链接 */
+        var itemURL = itemList[i].getElementsByTagName('link'); 
+        var newATag = document.createElement('a'); 
+        newATag.href = itemURL[0].firstChild.nodeValue;
+        newATag.appendChild(newItemTitleTxt);
+        /* 获取项目描述 */
+        var itemDescription = itemList[i].getElementsByTagName('description');
+        var descriptionTxt = 
+document.createTextNode(itemDescription[0].firstChild.nodeValue);
+        var newPTag = document.createElement('p');
+        newPTag.appendChild(descriptionTxt);
+        /* 创建一个追加 HTML */  
+        newLITag.appendChild(newATag);
+        newLITag.appendChild(newPTag); 
+        newULTag.appendChild(newLITag);  
+       }
+  /* output the final HTML of the RSS feed to the page */
+  document.getElementById('feedOutput').appendChild(newULTag);
+ }
+//-->
+</script>
+</head>
+<body>
+<h1 align="center">Simple JavaScript RSS Reader</h1>
+<hr />
+<!---->
+<form name="feedForm" id="feedForm"  method="get" action="#">
+ <b>RSS Feed URL:</b> <input type="text" name="feedURL"
+ value="http://demos.javascriptref.com/newsfeed.xml" size="50" />
+<!--通过onclick调用readRSS()来获取新闻信息-->
+<input type="button" value="Display" onclick="readRSS(this.form.feedURL.value);" />
+</form>
+<div id="feedOutput"> <br /></div>
+<h2>For other feeds try</h2>
+<ul>
+  <li>http://rss.news.yahoo.com/rss/topstories</li>
+  <li>http://www.washingtonpost.com/wp-srv/topnews/rssheadlines.xml</li>
+  <li>http://rss.pcworld.com/rss/latestnews.rss</li>
+</ul>
+</body>
+</html>

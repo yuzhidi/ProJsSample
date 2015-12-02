@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Cookie Customization Example</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+var cookies = new Object();  //创建一个新对象
+function extractCookies()
+{  //定义几个变量，备用
+   var name, value;
+   var beginning, middle, end;
+   for (name in cookies)
+   {  //如果有多个条目，则将其删除
+     cookies = new Object();
+     break;
+   }
+   beginning = 0;  // 从Cookie字符串的头部开始
+   while (beginning < document.cookie.length)
+   {
+     middle = document.cookie.indexOf('=', beginning);
+     end = document.cookie.indexOf(';', beginning);
+     if (end == -1)  //如果没有分号（;），则此为最后一个Cookie
+ end = document.cookie.length;
+     if ( (middle> end) || (middle == -1) ){
+  // 如果该Cookie没有值
+       name = document.cookie.substring(beginning, end);  //取其名称
+       value = "";
+      }
+      else{
+  // 析取该值
+        name = document.cookie.substring(beginning, middle);  //取其名称
+        value = document.cookie.substring(middle + 1, end);  //取其值
+      }
+      cookies[name] = unescape(value);  // 添加至关联数组
+      beginning = end + 2;  // 跳至下一Cookie的开始位置
+   }
+}
+function changeColors(scheme) //函数：改变颜色
+{
+   switch(scheme) {
+//根据不同的选项，设置不同的背景色和前景色
+    case "plain": foreground = "black"; background = "white"; break;
+      case "ice": foreground = "lightblue"; background = "darkblue"; break;
+      case "green": foreground = "white"; background = "darkgreen"; break;
+      default: return;
+   }
+   document.bgColor = background;  //设置背景色
+   document.fgColor = foreground;   //设置前景色
+}
+function changeScheme(which)
+{
+  document.cookie = "cookiesenabled=true";
+  extractCookies();
+  if (!cookies["cookiesenabled"]) {
+  //如果禁用Cookie，则给出提示
+    alert("You need to enable cookies for this demo!");
+    return; //返回
+  }
+  document.cookie = "scheme=" + which; //设置Cookie
+  changeColors(which);  //改变颜色
+}
+var pageLoaded = false;
+extractCookies();
+changeColors(cookies["scheme"]); //调用changeColors()改变颜色
+//-->
+</script>
+</head>
+<body onload="pageLoaded=true">
+<h1>Customization Example</h1>
+<hr>
+<!--添加一段文字，以观察效果-->
+<blockquote> 
+Where a calculator on the ENIAC is equipped with
+19,000 vacuum tubes and weighs 30 tons, computers in the future may
+have only 1,000 vacuum tubes and perhaps only weigh 1.5 tons.
+</blockquote>
+<em>from Popular Mechanics, March 1949.</em>
+<hr>
+<!--控制表单-->
+<form action="#" method="get">改变背景颜色方案: &nbsp; &nbsp;
+<!--分别通过onclick调用changeScheme()函数，改变页面色彩方案-->
+<input type="button" value="无格式" onclick="changeScheme('plain');">
+<input type="button" value="蓝色" onclick="changeScheme('ice');">
+<input type="button" value="绿色" onclick="changeScheme('green');">
+</form>
+</body>
+</html>

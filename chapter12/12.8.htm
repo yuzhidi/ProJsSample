@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Text Node Modifications</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" >
+</head>
+<body>
+<p id="p1">This is a test</p>
+<script type="text/javascript">
+<!--
+//调用并存储p1结点的第一个子结点的相关属性
+var textNode = document.getElementById('p1').firstChild;
+//-->
+</script>
+<form action="#" method="get">
+<!—通过调用onclick事件，对结点进行修改、追加、插入、删除、替换等操作-->
+<input type="button" value="显示" onclick="alert(textNode.data);" >
+<input type="button" value="长度" onclick="alert(textNode.length);" >
+<input type="button" value="改变" onclick="textNode.data = 'Now a new value!'"><p>
+<input type="button" value="追加" onclick="textNode.appendData(' added to the end');" >
+<input type="button" value="插入" onclick="textNode.insertData(0,'added to the front');" >
+<input type="button" value="删除" onclick="textNode.deleteData(0, 2);" ><p>
+<input type="button" value="替换" onclick="textNode.replaceData(0,4,'Zap!');" >
+<!—调用substringData()来读取子串-->
+<input type="button" value="子串" 
+onclick="alert(textNode.substringData(2,2));" >
+<!—调用splitText()来完成拆分操作-->
+<input type="button" value="拆分" 
+onclick="temp = textNode.splitText(5); alert('Text node ='+textNode.data+'\nSplit Value = '+temp.data);" >
+</form>
+</body>
+</html>

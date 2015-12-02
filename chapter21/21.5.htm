@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DHTML Behavior Example</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<meta name="save" content="history">
+<style type="text/css">
+<!--
+ .saveHistory 
+{
+behavior:url(#default#savehistory);
+}
+-->
+</style>
+</head>
+<body>
+<form action="#" method="get">
+在文本框中随意输入一些内容:
+<!--用来接收输入的内容，其class为saveHistory ,由前面的样式来定义-->
+<input type="text" class="saveHistory" id="persistentInput">
+</form>
+<br>
+在文本框中随意输入一些内容，然后用浏览器打开另外一个页面。
+随后，返回刚才的页面，检查输入的内容是否还在。
+</body>
+</html>

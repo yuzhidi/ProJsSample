@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Browser Button Simulator</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+</head>
+<body>
+<h1 align="center">按键模拟</h1>
+<hr>
+<!--控制表单-->
+<form action="#" method="get">
+<!--设置不同的表单，分别通过onclick调用相应的函数，完成不同的事件模拟-->
+<input type="button" value="打印" onclick="if (window.print) window.print();">
+<input type="button" value="前进" onclick="if (window.forward) window.forward();">
+<input type="button" value="后退" onclick="if (window.back) window.back();">
+<input type="button" value="主页" onclick="if (window.home) window.home();">
+<input type="button" value="停止" onclick="if (window.stop) window.stop();">
+</form>    
+</body>
+</html>

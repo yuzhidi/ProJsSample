@@ -1,0 +1,36 @@
+<script language="javascript">
+	var strSrc = "xxa1b01c001yya2b02c002zz";
+	var re = /a(\d)b(\d{2})c(\d{3})/gi;
+	var arr, count = 0;
+	while ((arr = re.exec(strSrc)) != null)
+	{
+		displayResult();
+	}
+	function displayResult()
+	{
+		document.write("<p>这是用正则表达式/" + re.source + "/gi对字符串<br>\""
+			 + RegExp.input + "\"进行第" + (++count) + "次搜索的结果：<br>");
+		document.write("RegExp.index为" + RegExp.index + "<br>");
+		document.write("RegExp.lastIndex为" + RegExp.lastIndex + "<br>");
+		document.write("RegExp.lastMatch为" + RegExp.lastMatch + "<br>");
+		document.write("RegExp.lastParen为" + RegExp.lastParen + "<br>");
+		document.write("RegExp.leftContext为" + RegExp.leftContext + "<br>");
+		document.write("RegExp.rightContext为" + RegExp.rightContext + "<br>");
+		document.write("RegExp.$1为" + RegExp.$1 + "<br>");
+		document.write("RegExp.$2为" + RegExp.$2 + "<br>");
+		document.write("RegExp.$3为" + RegExp.$3 + "<br>");
+		document.write("RegExp.$4为" + RegExp.$4 + "<br>");
+		document.write("arr.index为" + arr.index + "<br>");
+		document.write("arr.input为" + arr.input + "<br>");
+		document.write("arr.lastIndex为" + arr.lastIndex + "<br>");
+		document.write("返回数组的元素个数为" + arr.length + "<br>");
+		document.write("返回数组的内容为[");
+		for(var i=0; i<arr.length; i++)
+		{
+			if(i < arr.length-1)
+				document.write("\"" + arr[i] + "\",");
+			else
+				document.write("\"" + arr[i] + "\"]</p>");
+		}
+	}
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Remote Control</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+function loadImage(which) 
+{
+  var contentWindowURL = "20.5.htm";
+  if (!window.opener || window.opener.closed) 
+   {
+    alert("Main window went away. Will respawn it.");
+    window.open(contentWindowURL, "_blank");
+    window.close();
+    return;
+  }
+  window.opener.document.images["displayedImage"].src = which;
+  window.opener.focus();
+}
+//-->
+</script>
+</head>
+<body>
+<h3>选择要显示的图片</h3>
+<form action="#" onsubmit="return false;" method="get">
+<input type="button" value="图片一" onclick="loadImage('image1.gif');">
+&nbsp;
+<input type="button" value="图片二" onclick="loadImage('image2.gif');">
+&nbsp;
+<input type="button" value="图片三" onclick="loadImage('image3.gif');">
+&nbsp;
+<input type="button" value="图片四" onclick="loadImage('image4.gif');">
+</form>
+</body>
+</html>

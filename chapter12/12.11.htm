@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DOM Test</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" >
+</head>
+<body>
+<h1>DOM Test Heading</h1>
+<hr >
+<!-- Just a comment -->
+<p>A paragraph of <em>text</em> is just an example</p>
+<ul><li><a href="http://www.yahoo.com">Yahoo!</a></li></ul>
+<form name="testform" id="testform" action="#" method="get">
+结点名称：<input type="text" id="nodeName" name="nodeName" ><br >
+结点类型：<input type="text" id="nodeType" name="nodeType" ><br >
+结点属性：<input type= "text" id="nodeValue" name="nodeValue" ><br >
+</form>
+<script type="text/javascript">
+<!--
+if (document.createTreeWalker) //创建结点函数
+{
+function myFilter(n) { return NodeFilter.FILTER_ACCEPT; }
+var myWalker =
+document.createTreeWalker(document.documentElement
+,NodeFilter.SHOW_ALL,myFilter,false);
+}
+else
+alert("Error: Browser does not support DOM Traversal"); //输出错误信息
+function update(currentElement)  //更新结点
+{
+//更新结点名称
+window.document.testform.nodeName.value = currentElement.nodeName;
+//更新结点类型
+window.document.testform.nodeType.value = currentElement.nodeType;
+//更新结点值
+window.document.testform.nodeValue.value = currentElement.nodeValue;
+}
+var currentElement = myWalker.currentNode;
+update(currentElement);
+//-->
+</script>
+<form action="#" method="get"><p>
+<input type="button" value="双亲结点" 
+        onclick="myWalker.parentNode();update(myWalker.currentNode);" >
+<input type="button" value="第一个子结点"
+        onclick="myWalker.firstChild();update(myWalker.currentNode);" >
+<input type="button" value="最后一个子结点"
+        onclick="myWalker.lastChild();update(myWalker.currentNode);" ><p>
+<input type="button" value="下一兄弟结点"
+        onclick="myWalker.nextSibling();update(myWalker.currentNode);" >
+<input type="button" value="上一兄弟结点"
+        onclick="myWalker.previousSibling();update(myWalker.currentNode);" >
+<input type="button" value="下一个结点"
+        onclick="myWalker.nextNode();update(myWalker.currentNode);" ><p>
+<input type="button" value="返回根结点"
+        onclick="myWalker.currentNode=document.documentElement;
+update(currentElement);" >
+</form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<head><title>使用mimeTypes[]</title></head>
+<body>
+<script language="javascript">
+<!--
+if (navigator.mimeTypes)
+{   
+  document.write("<table><tr><th>MIME类型</th>");
+  document.write("<th>扩展名</th><th>描述</th></tr>");
+  for (var i=0; i<navigator.mimeTypes.length; i++) 
+{
+   document.write("<tr><td>" + navigator.mimeTypes[i].type + "</td>");
+   document.write("<td>" + navigator.mimeTypes[i].suffixes + "</td>");
+   document.write("<td>" + navigator.mimeTypes[i].description 
++ "</td></tr>");
+}
+  document.write("</table>");
+}
+//-->
+</script>
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Overly Simplistic Form Validation</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+function validate()
+{
+  if (document.myform.username.value == "")
+    {
+        alert("Username 必须输入！");
+        return false;
+    }
+  return true;
+}
+//-->
+</script>
+</head>
+<body>
+<center><h1>表单验证简单示例</h1>
+输入内容不可为空。
+<form name="myform" id="myform" method="get"
+      action="http://www.javascriptref.com/"
+      onsubmit="return validate();">
+Username: 
+<input type="text" name="username"  id="username" size="30">
+<input type="submit" value="提 交">
+</form>
+</center>
+</body>
+</html>

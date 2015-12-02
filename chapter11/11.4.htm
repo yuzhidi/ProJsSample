@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> <!--HTML页面头开始-->
+<title>传统文档对象测试</title> <!--HTML文档标题-->
+<!--定义文档显示简体中文-->
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script language="javascript"> 
+<!--  //JavaScript代码开始
+function showProps()
+{        //文档对象属性列表的显示，定义为一个函数，放在HTML的<head></head>中
+ var i;       //定义一个循环变量，下面的循环部分（共3处）要用到
+ //应用到的文档属性列表：开始
+ document.write("<h4 align='center'>文档对象属性</h4><hr>"); 
+//基本页面属性列表开始
+ document.write("<h5>基本页面属性</h5>");
+ document.write("位置 = "+document.location + "<br>");
+ document.write("URL = " + document.URL + "<br>");
+ document.write("文档标题 = "+ document.title + ";&nbsp");
+ document.write("文档最后编辑时间 = " + document.lastModified );
+ //颜色属性列表开始
+ document.write("<h5>页面颜色</h5>");
+ document.write("背景颜色 = " + document.bgColor + ";&nbsp");
+ document.write("文本颜色 = " + document.fgColor + ";&nbsp");
+ document.write("链接颜色 = " + document.linkColor +"<br>");
+ document.write("活动链接颜色 = " + document.alinkColor +";&nbsp");
+ document.write("已访问的链接的颜色 = " + document.vlinkColor + ";&nbsp");
+ //链接属性列表开始
+ if (document.links.length > 0)
+   {
+     document.write("<h5>链接</h5>");
+     document.write("# 链接数 = "+ document.links.length + ";&nbsp;"); 
+     for (i=0; i < document.links.length; i++)
+         document.write("Links["+i+"]=" + document.links[i] + ";&nbsp;");
+    }
+ //锚数量列表开始
+ if (document.anchors.length > 0)
+  {   
+    document.write("<h5>锚</h5>");
+    document.write("# 锚数 = " + document.anchors.length + ";&nbsp");
+    for (i=0; i < document.anchors.length; i++)
+        document.write("Anchors["+i+"]=" + document.anchors[i] + ";&nbsp");
+  }
+  //表单属性列表开始
+  if (document.forms.length > 0)
+   {
+     document.write("<h5>表单</h5>");
+     document.write("# 表单数 = " + document.forms.length + ";&nbsp");
+     for (i=0; i < document.forms.length; i++)      
+        document.write("Forms["+i+"]=" + document.forms[i].name + ";&nbsp");
+   }    
+}
+//-->  JavaScript代码结束
+</script>
+</head>   <!--HTML页面头结束-->
+<body bgcolor="white" text="green" link="red" alink="#ffff00">
+<h4 align="center">测试文档</h4>
+<hr>  <!--插入一个水平分隔线-->
+<!--加入一个链接-->
+<a href="http://www.print.com/">链接 1</a>
+<!--加入一个锚-->
+<a name="anchor1"></a>
+<!--加入一个带链接的锚-->
+<a name="anchor2" href="http://www.javascript.com">链接 2</a>
+<!--加入2个表单-->
+<form name="form1" action="#" method="get"></form>
+<form name="form2" action="#" method="get"></form>
+<hr> <!--插入一个水平分隔线-->
+<script language="javascript">
+<!--
+  showProps();    //在文档底部用JavaScript调用前面定义的函数
+//-->
+</script>
+</body>
+</html>

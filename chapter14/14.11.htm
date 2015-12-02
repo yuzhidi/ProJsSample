@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>JavaScript Guru 1.1</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+function customAlert(title,message)
+{
+  var guruWindow=window.open("","","width=300,height=200");   //定义窗口特征
+  if (guruWindow != null)
+{     //定义窗口页面HTML头部内容
+      var windowHTML= "<html><head><title>"+title+"</title></head>";
+      //定义窗口页面HTML主体内容
+      windowHTML += "<body bgcolor='black' text='yellow'><h1 align='center'>";
+      windowHTML += message + "</h1><hr><div align='center'>";
+      //定义窗口页面中的“关闭”按钮
+      windowHTML+="<form><input type='button' value='关 闭' onclick='self.close()'>";
+      windowHTML += "</form></div></body></html>";
+      guruWindow.document.write(windowHTML);  //写入页面
+      guruWindow.focus();   //获取焦点
+      return;     //返回
+     }
+}
+function askGuru()
+{
+  var question = prompt("要算哪方面的问题？","") //定义一个提示对话框
+  if (question != null)    
+  {
+     if (question == "")    //如果输入为空
+      customAlert("Angry Guru", "什么也没输入嘛！");
+     else               //如果有输入
+      customAlert("Bored Guru", "我会这么无聊吗？！");
+  } 
+}
+//-->
+</script>
+</head>
+<body>
+<div align="center">
+<h1>八字神算</h1>
+<hr>
+<form action="#" method="get">
+<!--通过onclick调用askGuru()函数-->
+<input type="button" value="算一算" onclick="askGuru();">
+</form>
+</div>
+</body>
+</html>

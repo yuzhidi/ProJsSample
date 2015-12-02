@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Form 对象测试</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+</head>
+<body>
+<h2 align="center">测试表单</h2>
+<form action="http://www.javascriptref.com/formEcho"
+     method="post" name="testform" id="testform" 
+     onreset="return confirm('Are you sure?');"
+     onsubmit="alert('Not really sending data'); return false;">
+<label>Name: 
+<input type="text" id="field1" name="field1" size="20"
+       value="Joe Smith"></label>
+<br>
+<label>Password: 
+<input type="password" id="field2" name="field2" 
+       size="8" maxlength="8"></label>
+<br>
+<input type="reset" value="reset">
+<input type="submit" value="submit">
+<input type="button" value="Do reset" 
+       onclick="document.testform.reset();">
+<input type="button" value="Do submit" 
+       onclick="document.testform.submit();"> 
+</form>
+<hr>
+<h2 align="center">Form 对象属性</h2>
+<script type="text/javascript">
+<!--
+// 修改 document.testform 为 document.forms[0] 
+// 会得到相同的结果
+with (document.testform)
+{
+   document.write("action: "+action+"<br>");
+   document.write("encoding: "+encoding+"<br>");
+   document.write("length: "+length+"<br>");
+   document.write("method: "+method+"<br>");
+   document.write("name: "+name+"<br>");
+   document.write("action: "+action+"<br>");
+   document.write("target: "+target+"<br>");
+   for (var i=0; i<document.testform.length; i++)
+        document.write("element["+i+"].type="+
+                       document.testform.elements[i].type+"<br>");
+}     
+//-->
+</script>
+</body>
+</html>

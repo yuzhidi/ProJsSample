@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Attribute Test</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" >
+</head>
+<body>
+<font id="test" size="2" color="red">Change my attributes!</font>
+<script type="text/javascript">
+<!--
+//获取id为test的结点的相关属性，并存储备用
+theElement = document.getElementById('test');
+//-->
+</script>
+<form name="testform" id="testform" action="#" method="get">
+颜色: 
+<input type="text" id="color" name="color" value="" size="8" >    
+<input type="button" value="设置颜色" 
+onclick="theElement.setAttribute('color',document.testform.color.value);" >
+<input type="button" value="移除颜色"
+ onclick="theElement.removeAttribute('color');" >
+<br >字号: 
+<select onchange="theElement.setAttribute('size',
+this.options[this.selectedIndex].text);">
+<option>1</option>
+<option>2</option>
+<option selected="selected">3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+</select>
+</form>
+<script type="text/javascript">
+<!--
+//使用getAttribute()对颜色进行设置
+document.testform.color.value = theElement.getAttribute('color');
+//-->
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>随机显示的背景图片</title>
+</head>
+<script LANGUAGE="JavaScript">
+bg = new Array(2); //设定图片数量，如果图片数为3，这个参数就设为2，依次类推
+bg[0] = 'image1.gif' //显示的图片路径，可用http://
+bg[1] = 'star.gif'
+bg[2] = 'red.gif'
+index = Math.floor(Math.random() * bg.length);
+document.write("<BODY BACKGROUND="+bg[index]+">");
+</script> 
+<center><h1>随机显示的背景图片</h1></center>
+</body>
+<html>

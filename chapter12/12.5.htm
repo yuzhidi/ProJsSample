@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DOM Adding</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" >
+<script type="text/javascript">
+<!--
+function makeNode(str)  //创建结点函数
+{
+var newParagraph = document.createElement("p");     //创建新元素p
+var newText = document.createTextNode(str);         //创建新文本
+newParagraph.appendChild(newText);                //追加一个新的子结点
+return newParagraph;                               //返回该段落
+}
+function appendBefore(nodeId, str)  //前插入函数
+{
+var node = document.getElementById(nodeId);
+var newNode = makeNode(str);
+if (node.parentNode)           //如果存在双亲结点
+node.parentNode.insertBefore(newNode,node);  //在当前结点前插入新结点
+}
+function insertWithin(nodeId, str)  //中插入函数
+{
+var node = document.getElementById(nodeId);
+var newNode = makeNode(str);
+node.appendChild(newNode);                   //追加一个新的子结点
+}
+function appendAfter(nodeId, str)  //后插入函数
+{
+var node = document.getElementById(nodeId);
+var newNode = makeNode(str);
+if (node.parentNode)                    // 如果存在双亲结点
+{ 
+if (node.nextSibling)           //如果存在下一子结点
+//前插入子结点
+node.parentNode.insertBefore(newNode, node.nextSibling);
+else //如果没有下一子结点
+//后追加子结点
+node.parentNode.appendChild(newNode);
+}
+}
+//-->
+</script>
+</head>
+<body>
+<h1><center>DOM 插入 与 追加</center></h1>
+<hr >
+<div style="background-color:#66ff00;">
+  <div id="innerDiv" style="background-color:#ffcc00;"></div>
+</div>
+<hr >
+<form id="form1" name="form1" action="#" method="get">
+  <input type="text" id="field1" name="field1" >
+  <input type="button" value="前插入"
+         onclick="appendBefore('innerDiv',document.form1.field1.value);" >
+  <input type="button" value="中插入"
+         onclick="insertWithin('innerDiv',document.form1.field1.value);" >
+  <input type="button" value="后出入"
+         onclick="appendAfter('innerDiv',document.form1.field1.value);" >
+</form>
+</body>
+</html>

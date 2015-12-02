@@ -1,0 +1,26 @@
+<html>
+<head><title>事件处理器的返回值</title></head>
+<body>
+<h1>事件处理器的返回值</h1><p>
+<script type="text/javascript">
+<!--
+function validateField(field)
+{
+  if (field.value == "")
+  {
+    alert("You must enter a user name.");
+    field.focus();
+    return false;
+  }
+
+  return true;
+}
+//-->
+</script>
+<form action="/cgi-bin/login.cgi" method="get"
+      onsubmit="return validateField(this.username);">
+用户名: <input type="text" name="username" id="username">
+<input type="submit" value="登录">
+</form>
+</body>
+</html>

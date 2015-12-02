@@ -1,0 +1,23 @@
+<html>
+<head>
+<script language="JavaScript">
+<!--
+function display() {     //函数：显示内容
+  var title = document.getElementById('titleBar').innerHTML;
+  alert(title);
+}
+function change() {   //函数：修改内容
+  document.getElementById('titleBar').innerHTML = '这是<span style="border:1px solid">改变后</span>的标题';
+}
+//-->
+</script>
+</head>
+<body>
+<h1 id="titleBar">这是一个测试标题</h1>
+<div style="margin-top:10px;">
+  <!--分别通过onclick调用display()函数和change()函数，用以显示内容和修改内容-->
+  <input type="button" value="显示"  onclick="display();">
+  <input type="button" value="修改" onclick="change()">
+</div>
+</body>
+</html>

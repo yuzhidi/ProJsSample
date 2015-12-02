@@ -1,0 +1,14 @@
+<html>
+<head><title>使用navigator.plugins[][]列举所有Flash MIME类型</title></head>
+<body>
+<h1>使用navigator.plugins[][]列举所有Flash MIME类型</h1><p>
+<script language="javascript">
+if (navigator.plugins["Shockwave Flash"])
+{
+  for (var i=0; i<navigator.plugins["Shockwave Flash"].length; i++)
+    document.write("Flash MimeType: " +
+                   navigator.plugins["Shockwave Flash"][i].type + "<br>");
+}
+</script>
+</body>
+</html>

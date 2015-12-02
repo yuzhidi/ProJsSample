@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>超级链接页面预览</title>
+</head>
+<body>
+<center>
+<form name=form1>
+<h1>将光标移至超链接上查看页面预览</h1>
+<a href="example1.htm" name=link1 onMouseOver="link1Over()">这是链接一</a><br><br>
+<a href="example2.htm" name=link2 onMouseOver="link2Over()">这是链接二</a><br><br>
+<a href="example3.htm" name=link3 onMouseOver="link3Over()">这是链接三</a><br><br>
+<a href="example4.htm" name=link4 onMouseOver="link4Over()">这是链接四</a><br><br>
+<a href="example5.htm" name=link5 onMouseOver="link5Over()">这是链接五</a><br><br>
+<img name="img1" src="image1.gif" width=236 height=118>
+</form>
+</center>
+</body>
+<script language=javascript>
+<!--
+function link1Over()
+{
+document.form1.img1.src="image1.gif"
+}
+function link2Over()
+{
+document.form1.img1.src="image2.gif"
+}
+function link3Over()
+{
+document.form1.img1.src="image3.gif"
+}
+function link4Over()
+{
+document.form1.img1.src="image4.gif"
+}
+function link5Over()
+{
+document.form1.img1.src="image5.gif"
+}
+//-->
+</script>
+
+</html>

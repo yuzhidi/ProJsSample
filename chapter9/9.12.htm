@@ -1,0 +1,30 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Event Bubbling Example</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+function gotClick(who) 
+{
+  document.all.results.innerHTML += who + " got the click <br>";
+}
+//-->
+</script>
+</head>
+<body onclick="gotClick('body');">
+<h1>事件流测试</h1><p>
+<table onclick="gotClick('table');">
+ <tr onclick="gotClick('tr');">
+   <td onclick="gotClick('td');">
+     <p onclick="gotClick('p');">
+点击这里的 <b onclick="gotClick('b');">黑体字</b> 来观察事件流！
+     </p> 
+   </td> 
+ </tr> 
+</table>
+<hr> <br>
+<p id="results"> </p>
+</body>
+</html>

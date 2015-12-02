@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>插入和删除表元</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+</head>
+<body>
+<center><h1>插入和删除表元</h1></center><p>
+<!--定义一个2行2列的表格-->
+<table id="table1" border="1">
+<tr id="row1">
+<td id="cell1">表元1</td>
+<td id="cell2">表元2</td>
+</tr>
+<tr id="row2">
+<td id="cell3">表元3</td>
+<td id="cell4">表元4</td>
+</tr>
+</table>
+<script type="text/javascript">
+<!--
+//通过id获取该表格的相关属性
+var theTable = document.getElementById("table1");
+function doRowInsert(row) //函数：插入行
+{
+var rowNumber = parseFloat(row);  //对行数进行转换并存储
+//如果输入的行数不小于0且不大于表格行数
+if ((rowNumber>= 0) && (rowNumber <= theTable.rows.length))
+theTable.insertRow(rowNumber); //插入该行
+}
+function doCellInsert(row,column) //函数：插入表元
+{
+var rowNumber = parseFloat(row); //对行数进行转换并存储
+var colNumber = parseFloat(column); //对列数进行转换并存储
+var numberRowsInTable = theTable.rows.length; //存储表格行数
+//如果行数、列数都不小于0
+if ((rowNumber>= 0 ) && (colNumber>= 0)){
+//如果行号不小于表格行数
+if (rowNumber>= numberRowsInTable){
+//弹出对话框，提示不可操作
+alert("Can't add beyond defined rows");
+return; //返回
+} 
+//如果列数大于表格中该行的列数
+if (colNumber> theTable.rows[rowNumber].cells.length){
+//弹出对话框，提示不可操作
+alert("Can't add more than one beyond columns");
+return;//返回
+}
+//在指定的行中插入指定列的表元
+theTable.rows[rowNumber].insertCell(colNumber); 
+}
+}
+function doCellModification(row,column,newValue) //函数：编辑表元
+{
+var rowNumber = parseFloat(row); //对行数进行转换并存储
+var colNumber = parseFloat(column); //对列数进行转换并存储
+var numberRowsInTable = theTable.rows.length; //存储表格行数
+//如果行数、列数都不小于0
+if ((rowNumber>= 0 ) && (colNumber>= 0)){
+//如果行号不小于表格行数
+if (rowNumber>= numberRowsInTable){
+//弹出对话框，提示不可操作
+alert("Can't modify cells outside the table");
+return;//返回
+} 
+//如果列数不小于表格中该行的列数
+if (colNumber>= theTable.rows[rowNumber].cells.length){
+//弹出对话框，提示不可操作
+alert("Can't modify cells outside the table");
+return;//返回
+}
+//在指定的行、列中插入新的表元内容
+theTable.rows[rowNumber].cells[colNumber].innerHTML = newValue; 
+}
+}
+function doCellDelete(row,column)    //函数：删除表元
+{
+var rowNumber = parseFloat(row); //对行数进行转换并存储
+var colNumber = parseFloat(column); //对列数进行转换并存储
+var numberRowsInTable = theTable.rows.length; //存储表格行数
+//如果行数、列数都不小于0
+if ((rowNumber>= 0 ) && (colNumber>= 0)){
+//如果行号不小于表格行数
+if (rowNumber>= numberRowsInTable){
+//弹出对话框，提示不可操作
+alert("Can't delete beyond defined rows");
+return; //返回
+} 
+//如果列数不小于表格中该行的列数
+if (colNumber>= theTable.rows[rowNumber].cells.length){
+//弹出对话框，提示不可操作
+alert("Can't delete beyond the column");
+return; //返回
+} 
+//删除指定行中的指定列
+theTable.rows[rowNumber].deleteCell(colNumber); 
+}
+}
+//-->
+</script>
+<!--操作控制表单-->
+<form name="testForm" id="testForm" action="#" method="get">
+<!--输入要进行操作的行号，默认值为1-->
+行号: <input type="text" name="rowtoinsert" id="rowtoinsert" 
+size="2" maxlength="2" value="1">
+<!--通过onclick调用doRowInsert()函数完成插入行操作-->
+<input type="button" value="插入行" 
+onclick="doRowInsert(document.testForm.rowtoinsert.value);"><br>
+<!--输入要进行操作的行号，默认值为0-->
+行号: <input type="text" name="insertionRow" id="insertionRow" 
+size="2" maxlength="2" value="0">
+<!--输入要进行操作的列号，默认值为0-->
+列号: <input type="text" name="insertionColumn" id="insertionColumn" 
+size="2" maxlength="2" value="0">
+<!--通过onclick调用doCellInsert()函数完成插入列操作-->
+<input type="button" value="插入列" 
+onclick="doCellInsert(document.testForm.insertionRow.value,
+document.testForm.insertionColumn.value);"><br>
+<!--输入要进行操作的行号，默认值为0-->
+行号: <input type="text" name="modifyRow" id="modifyRow" 
+size="2" maxlength="2" value="0">
+<!--输入要进行操作的列号，默认值为0-->
+列号: <input type="text" name="modifyColumn" id="modifyColumn" 
+size="2" maxlength="2" value="0">
+<!--输入表元的内容，用以替换旧的表元内容，默认值为空-->
+新内容: <input type="text" name="newContents" id="newContents" 
+size="20" maxlength="20" value="">
+<!--通过onclick调用doCellModification()函数完成编辑表元内容的操作-->
+<!--其中的3个参数分别为行号、列号和表元内容-->
+<input type="button" value="编辑表元内容" 
+onclick="doCellModification(document.testForm.modifyRow.value,
+document.testForm.modifyColumn.value,
+document.testForm.newContents.value);"><br>
+行号: <input type="text" name="deletionRow" id="deletionRow" 
+size="2" maxlength="2" value="0">
+列号: <input type="text" name="deletionColumn" id="deletionColumn" 
+size="2" maxlength="2" value="0">
+<!--通过onclick调用doCellDelete()函数完成删除表元操作-->
+<input type="button" value="删除表元" 
+onclick="doCellDelete(document.testForm.deletionRow.value,
+document.testForm.deletionColumn.value);"><br>
+</form>
+</body>
+</html>

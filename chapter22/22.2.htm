@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>颜色演示</title>
+</head>
+<body>
+<center>
+<form>
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<img width=50 height=50 src="blue.gif">
+<br>
+<br>
+<INPUT type=button value="新颜色" onClick="newImage()">
+</form>
+</center>
+</body>
+<script language="javascript">
+<!--
+var imageArray=new Array(5);
+imageArray[0]=new Image(50,50);
+imageArray[0].src="white.gif";
+imageArray[1]=new Image(50,50);
+imageArray[1].src="black.gif";
+imageArray[2]=new Image(50,50);
+imageArray[2].src="red.gif";
+imageArray[3]=new Image(50,50);
+imageArray[3].src="green.gif";
+imageArray[4]=new Image(50,50);
+imageArray[4].src="blue.gif";
+function newImage()
+{
+ document.images[Math.round(49.5*Math.random())].src = imageArray[Math.round(4.5 * Math.random())].src
+}
+//-->
+</script>
+</html>

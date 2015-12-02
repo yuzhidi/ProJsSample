@@ -1,0 +1,23 @@
+<script type="text/javascript">
+var commandURL = "http://demos.javascriptref.com/setrating.php?";
+function sendURL(url) 
+{
+var img = new Image(); //创建Image对象
+img.src = url; 
+}
+function sendRating(productid, rating, user) 
+{
+var params = "productid=" + productid;
+params += "&rating=" + rating;
+params += "&user=" + user;
+sendURL(commandURL + params);  //调用sendURL()函数
+return false; //返回错误
+}
+</script>
+<!--其他内容，这里省略 -->
+评价该项目:
+<form action="#" method="get">
+  <input type="button" value="太差了!" onclick="return sendRating(2158, 1,'Bob');"/>
+  <input type="button" value="还不错" onclick="return sendRating(2158, 2,'Bob');" />
+  <input type="button" value="好极了!" onclick="return sendRating(2158, 3,'Bob');" />
+</form>

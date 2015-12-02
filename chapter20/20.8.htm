@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Dynamic Sizing</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+</head>
+<body>
+<h1 id="test1" style="font-family: verdana; text-align: center;">请改变浏览器窗口大小，注意字号的变化</h1>
+<script type="text/javascript">
+<!-- 
+function setSize()   //函数：设置尺寸
+{
+ if (document.getElementById)
+  {
+   theHeading = document.getElementById("test1");  //获取该段文字的相关属性
+   if (window.innerWidth)
+      theHeading.style.fontSize = (window.innerWidth / 13)+"px"; //设置字号
+   else if ((document.body) && (document.body.clientWidth))
+      theHeading.style.fontSize = (document.body.clientWidth / 13)+"px"; //设置字号
+  }
+}
+window.onload = setSize;        // 初始大小;
+window.onresize = setSize;      //调整后的大小
+// -->
+</script>
+</body>
+</html>

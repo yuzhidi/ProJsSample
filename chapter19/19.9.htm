@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>浮动菜单</title>
+<script language="javascript">
+<!--
+function stat(){
+var a = pageYOffset+window.innerHeight-document.bar.document.height-15
+document.bar.top = a
+setTimeout('stat()',2)
+}
+function fix(){
+nome=navigator.appName
+if(nome=='Netscape'){
+stat()
+}
+else{
+var a=document.body.scrollTop+document.body.clientHeight-document.all.bar.offsetHeight+15
+bar.style.top = a
+}}
+//-->
+</script> 
+</head>
+<body onLoad='fix()' onScroll="fix()" onResize="fix()"> <!--这一行不要忘记写-->
+<!--pan标签内放入一个TABLE，里面就是你的站点连接菜单，用TABLE的目的是比较容易控制布局。你
+可以自由修改下一行的代码，修正菜单出现的绝对位置。 -->
+<center>
+<h1>浮动菜单效果举例</h1>
+请调整浏览器的大小，尤其是高度，注意菜单所在的位置。
+</center>
+<span id="bar" style="position:absolute; left:68px; top:455px; width:614px; height:45px; z-index:9" > 
+<table border="1" hspace="1" cellpadding="1" bordercolor="#000000" bgcolor="#FFFFFF">
+<tr align="center"> 
+<td width="190"> <a href="index.htm">回到首页 </a></td>
+<td width="147"> <a href="link01.htm">链接之一</a></td>
+<td width="96"> <a href="link02.htm">链接之二</a></td>
+<td width="158"> <a href="link03.htm" target="_blank">链接之三</a> 
+</td>
+</tr>
+</table>
+</span>
+</body>
+</html>

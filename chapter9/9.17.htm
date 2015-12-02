@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DOM2 事件创建</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+</head>
+<body>
+<h2>DOM2 事件创建</h2>
+<form id="mouseform" name="mouseform" action="#" method="get">
+在浏览器中的点击位置: <input id="clientx" type="text">, 
+                              <input id="clienty" type="text"> <br>
+</form>
+<br><hr><br>
+<script type="text/javascript">
+<!--
+// 仅用于DOM 2， IE6 不支持。
+
+function showMouseDetails(event) 
+{
+  document.mouseform.clientx.value = event.clientX;
+  document.mouseform.clienty.value = event.clientY;
+}
+function makeEvent()
+{
+  evt = document.createEvent("HTMLEvents");
+  evt.initEvent("click","true","true"); 
+  currentNode.dispatchEvent(evt);
+}
+function startListen()
+{
+  document.addEventListener("click", showMouseDetails, true);
+}
+function stopListen()
+{
+ document.removeEventListener("click", showMouseDetails, true);   
+}
+
+startListen();
+//--> 
+</script>
+<form action="#" method="get" id="myForm" name="myForm">
+   Current Node: <input type="text" name="statusField" value="">
+      <br>
+   <input type="button" value="parent" onclick="if
+ (currentNode.parentNode) currentNode = currentNode.parentNode;
+ document.myForm.statusField.value = currentNode.nodeName;">
+
+   <input type="button" value="First Child" onclick="if
+ (currentNode.firstChild) currentNode = currentNode.firstChild;
+ document.myForm.statusField.value = currentNode.nodeName;">
+
+   <input type="button" value="Next Sibling" onclick="if
+ (currentNode.nextSibling) currentNode = currentNode.nextSibling;
+ document.myForm.statusField.value = currentNode.nodeName;">
+
+   <input type="button" value="Previous Sibling" onclick="if
+ (currentNode.previousSibling) currentNode = currentNode.previousSibling;
+ document.myForm.statusField.value = currentNode.nodeName;">
+      <br><br>
+   <input type="button" value="Start Event Listener"
+ onclick="startListen();">
+      <input type="button" value="Stop Event Listener"
+ onclick="stopListen();">
+      <br><br>
+      <input type="button" value="Create Event" onclick="makeEvent();">
+</form>
+<script type="text/javascript">
+<!--
+ var currentNode = document.body;
+ document.myForm.statusField.value = currentNode.nodeName;
+//-->
+</script>
+</body>
+</html>

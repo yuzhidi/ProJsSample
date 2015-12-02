@@ -1,0 +1,18 @@
+<html>
+<head><title>使用mimeTypes[]检测支持的媒体类型</title></head>
+<body>
+<h1>使用mimeTypes[]检测支持的媒体类型</h1>
+如果浏览器支持application/x-shockwave-flash，会显示一个Flash文件，否则，会显示一幅静态图像。<p>
+<script language="javascript">
+if (navigator.mimeTypes
+    && navigator.mimeTypes["application/x-shockwave-flash"]
+    && navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin)
+  document.write('<embed src="What&who.swf" width="500"' +
+                 ' height="300"></embed>');
+else
+  document.write('<img src="wjj003.jpg" width="300" height="200"' +
+                 'alt="My Widget">');
+</script>
+</body>
+</html>
+

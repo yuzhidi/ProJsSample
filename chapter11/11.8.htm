@@ -1,0 +1,10 @@
+<form name="myForm" id="myForm" method="get" action="#">
+<!--按钮id取myButton，方便后面调用-->
+<input name="myButton" id="myButton" type="button" value="Click me">
+</form>
+<script language="javascript">
+<!--
+//使用单纯的JavaScript代码实现onclick事件，调用一个函数，弹出对话框
+document.myForm.myButton.onclick = new Function("alert('开个玩笑 :-)')");
+// -->
+</script>

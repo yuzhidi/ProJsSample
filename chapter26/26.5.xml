@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="gb2312" standalone="yes" ?>
+<!--<?xml-stylesheet href="staff.xsl" type="text/xsl"?>-->
+<!--<?xml-stylesheet href="staff.css" type="text/css"?>-->
+<directory>
+<employee>
+     <name>Fred Brown</name>
+     <title>Widget Washer</title>
+     <phone>(010) 12345678</phone>
+     <email>fbrown@democompany.com</email>
+</employee>
+<employee>
+     <name>Cory Richards</name>
+     <title>Toxic Waste Manager</title>
+     <phone>(010) 12345676</phone>
+     <email>mrichards@democompany.com</email>
+</employee>
+<employee>
+     <name>Tim Powell</name>
+     <title>Big Boss</title>
+     <phone>(010) 12345675</phone>
+     <email>tpowell@democompany.com</email>
+</employee>
+<employee>
+     <name>Samantha Jones</name>
+     <title>Sales Executive</title>
+     <phone>(010) 12345674</phone>
+     <email>jones@democompany.com</email>
+</employee>
+<employee>
+     <name>Eric Roberts</name>
+     <title>Director of Technology</title>
+     <phone>(010) 12345673</phone>
+     <email>eric@democompany.com</email>
+</employee>
+<employee>
+     <name>Frank Li</name>
+     <title>Marketing Manager</title>
+     <phone>(020) 12345677</phone>
+     <email>fli@democompany.com</email>
+</employee>
+</directory>

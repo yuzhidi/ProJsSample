@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DOM Walk Test</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+</head>
+<body>
+<p id="p1" align="center">A paragraph of <em>text</em> is just an example</p>
+<script type="text/javascript">
+<!--
+function nodeStatus(node)     //存储结点相关属性
+{
+  var temp = "";  //定义一个字符串变量，用来存储结点相关属性
+  temp += "nodeName: "+node.nodeName+"\n";  //存储结点的名称
+  temp += "nodeType: "+node.nodeType+"\n";     //存储结点的类型
+  temp += "nodeValue: "+node.nodeValue+"\n\n";  //存储结点的值
+  return temp;  //返回结点相关属性
+}
+//对树进行遍历，通过调用nodeStatus()函数，
+//使用msg依次存储遍历出的结点的相关属性
+var currentElement = document.getElementById('p1'); // 从p开始
+var msg = nodeStatus(currentElement);  
+currentElement = currentElement.firstChild;  // text 结点1
+msg += nodeStatus(currentElement);
+currentElement = currentElement.nextSibling; // em 元素
+msg += nodeStatus(currentElement);
+currentElement = currentElement.firstChild; //  text 结点2 
+msg += nodeStatus(currentElement);
+currentElement = currentElement.parentNode; // 返回em元素
+msg += nodeStatus(currentElement);
+currentElement = currentElement.previousSibling; //返回text结点1
+msg += nodeStatus(currentElement);
+currentElement = currentElement.parentNode; //指向p元素
+msg += nodeStatus(currentElement);
+currentElement = currentElement.lastChild; // 指向text结点3
+msg += nodeStatus(currentElement);
+alert(msg); //输出该树型结构的相关属性
+//-->
+</script>
+</body>
+</html>

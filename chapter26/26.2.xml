@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE combomeal 
+[
+<!ENTITY cola "Pepsi">
+<!ELEMENT combomeal (burger+, fries+, drink+)>
+<!ELEMENT burger (name, bun)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT bun (meat+, cheese+, meat+)>
+<!ATTLIST bun bread (white | wheat) #REQUIRED>
+<!ELEMENT meat EMPTY>
+<!ELEMENT cheese EMPTY>
+<!ELEMENT fries EMPTY>
+<!ATTLIST fries size (small | medium | large) #REQUIRED>
+<!ELEMENT drink (#PCDATA)>
+<!ATTLIST drink size (small | medium | large) #REQUIRED>
+]>
+<!-- the document instance -->
+<combomeal>
+   <burger>
+   <name>Tasty Burger</name>
+   <bun bread="white">
+      <meat />
+      <cheese />
+      <meat />
+   </bun>
+   </burger>
+   <fries size="large" />
+   <drink size="large">&cola;</drink>
+</combomeal>

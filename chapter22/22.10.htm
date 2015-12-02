@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>Í¼Æ¬µÄ½¥Òþ½¥ÏÔ</title>
+<script language=javaScript>
+<!--
+
+var i_strngth=1
+var i_image=0
+var imageurl = new Array()
+//ÒªÏÔÊ¾µÄ3·ùÍ¼Æ¬
+imageurl[0] ="w1.jpg"
+imageurl[1] ="w2.jpg"
+imageurl[2] ="w3.jpg"
+function showimage()
+{ 
+if(document.all) 
+{
+if (i_strngth <=110) 
+{
+testimage.innerHTML="<img style='filter:alpha(opacity="+i_strngth+")' src="+imageurl[i_image]+" border=0>";
+i_strngth=i_strngth+10
+var timer=setTimeout("showimage()",100)
+}
+else 
+{
+clearTimeout(timer)
+var timer=setTimeout("hideimage()",1000)
+}
+}
+if(document.layers) 
+{
+clearTimeout(timer)
+document.testimage.document.write("<img src="+imageurl[i_image]+" border=0>")
+document.close()
+i_image++
+if (i_image >= imageurl.length) {i_image=0} 
+var timer=setTimeout("showimage()",2000)
+} 
+}
+function hideimage() 
+{ 
+if (i_strngth >=-10) 
+{
+testimage.innerHTML="<img style='filter:alpha(opacity="+i_strngth+")' src="+imageurl[i_image]+" border=0>";
+i_strngth=i_strngth-10
+var timer=setTimeout("hideimage()",100)
+} 
+else 
+{
+clearTimeout(timer)
+i_image++
+if (i_image >= imageurl.length) {i_image=0}
+i_strngth=1
+var timer=setTimeout("showimage()",500) 
+}
+}
+//-->
+</script>
+</head> 
+<body onLoad="showimage()">
+<div id="testimage" style="position:absolute;visibility:visible;top:30px;left:60px">
+</div> 
+</body>
+</html>

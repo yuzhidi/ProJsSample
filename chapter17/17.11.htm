@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Generic Form Check Demo</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+var validations = new Array();
+// Define which validations to perform. Each array item
+// holds the form field to validate, and the validation
+// to be applied. This is the only part you need to
+// customize in order to use the script in a new page!
+
+validations[0]=["document.myform.username", "notblank"];
+validations[1]=["document.myform.useremail", "validemail"];
+validations[2]=["document.myform.favoritenumber", "isnumber"];
+
+// Customize above array when used with a new page.
+function isEmpty(s) 
+{
+  if (s == null || s.length == 0)
+    return true;
+
+  // The test returns true if there is at least one non-
+  // whitespace, meaning the string is not empty. If the
+  // test returns true, the string is empty.
+  return !/\S/.test(s);
+}
+
+function looksLikeEmail(field)
+{
+  var s = field.value;
+
+  if (isEmpty(s))
+   {
+     alert("Email 不可为空。");
+     field.focus();
+     return false;
+   }
+
+  if (/[^@]+@\w+/.test(s))
+       return true;
+  alert("E-mail 地址不合法。");
+  field.focus();
+  return false;
+}
+
+function isInteger(field)
+{
+  var s = field.value;
+  if (isEmpty(s))
+   {
+     alert("输入域不能为空。");
+     field.focus();
+     return false;
+   }
+
+  if (!(/^-?\d+$/.test(s)))
+   {
+     alert("该域中只能输入数字");
+     field.focus();
+     return false;
+   }
+ return true;
+}
+
+function validate()
+{
+  var i;
+  var checkToMake;
+  var field;
+
+  for (i = 0; i < validations.length; i++)
+   {
+     field = eval(validations[i][0]);
+     checkToMake = validations[i][1];
+     switch (checkToMake)     
+      {
+       case 'notblank': if (isEmpty(field.value))
+                          {
+                           alert("Field may not be empty");
+                           field.focus();
+                           return false;
+                          }
+                        break;
+       case 'validemail':  if (!looksLikeEmail(field))
+                               return false;
+                           break;
+       case 'isnumber':  if (!isInteger(field))
+                            return false;
+      }
+   }
+  return true;
+}
+//-->
+</script>
+</head>
+<body>
+<center>
+<h1>混合表单确认示例</h1>
+输入要求：Email项必须输入Email地址，“喜欢的数字”项必须输入数字，提交前，不可有未填项。
+
+</center>
+<form name="myform" id="myform" method="get"
+ action="http://www.javascriptref.com"
+ onsubmit="return validate();">
+
+姓 名：     
+<input type="text" name="username" id="username"
+           size="30" maxlength="60">
+<br>
+Email： 
+<input type="text" name="useremail" id="useremail"
+        size="30" maxlength="90">
+<br>
+喜欢的数字： 
+<input type="text" name="favoritenumber"
+       id="favoritenumber" size="10" maxlength="10">
+<p>
+<input type="submit" value="提 交">
+</form>
+
+</body>
+</html>

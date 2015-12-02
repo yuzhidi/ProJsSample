@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>radio/checkbox test</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+function showradiovalue(radiogroup)
+{
+   var numradios = radiogroup.length;
+
+   for (var i = 0; i < numradios; i++)
+      if (radiogroup[i].checked)
+         alert('radio '+i+' with value of '+radiogroup[i].value);
+}
+//-->
+</script>
+</head>
+<body>
+<h2 align="center">复选框与单选按钮示例</h2>
+<form name="testform" id="testform" action="#" method="get">
+<em>复选框：</em>
+<!--建立复选框，其id为check1-->
+<input type="checkbox" name="check1" id="check1" value="testvalue">
+<br><br>
+<em>单选按钮：</em>
+<!--建立3个单选按钮，id分别为radio1、radio2和radio3-->
+yes:<input type="radio" name="radiogroup1" id="radio1" value="yes"> 
+no:<input type="radio" name="radiogroup1" id="radio2" value="no">
+maybe:<input type="radio" name="radiogroup1" id="radio3" value="maybe">
+<br><br>
+<!--通过onclick调用click()来选择check1-->
+<input type="button" value="选择复选框"     onclick="document.testform.check1.click();">
+<!--通过onclick调用click()来选择radio1-->
+<input type="button" value="选择单选按钮"
+       onclick="document.testform.radiogroup1[0].click();">
+<!--通过onclick调用focus()来使check1获得焦点-->
+<input type="button" value="使复选框获得焦点"       onclick="document.testform.check1.focus();"><p>
+<!--通过onclick调用blur()来使check1失去焦点-->
+<input type="button" value="使复选框失去焦点"       onclick="document.testform.check1.blur();">
+<input type="button" value="复选框状态"       onclick="alert('checked?'+document.testform.check1.checked);">
+<input type="button" value="单选按钮状态"       onclick="showradiovalue(document.testform.radiogroup1);">
+</form>
+<hr>
+<h2 align="center">域属性</h2>
+<script type="text/javascript">
+<!--
+with (document)
+ {   //输出复选框和单选按钮的相关属性
+  write("checked: " + document.testform.check1.checked+"<br>");
+  write("defaultchecked: "+document.testform.check1.defaultChecked+"<br>");
+  write("form: " + document.testform.check1.form+"<br>");
+  write("form.name: " + document.testform.check1.form.name+"<br>");
+  write("name: " + document.testform.check1.name+"<br>");
+  write("type: " + document.testform.check1.type+"<br>");
+  write("value: " + document.testform.check1.value+"<br><br>");
+  write("radiogroup array:" + document.testform.radiogroup1+"<br>");
+  write("radiogroup array length:" + document.testform.radiogroup1.length+"<br>");
+  for (var i=0; i < document.testform.radiogroup1.length; i++)
+    write("radiogroup["+i+"].value:" + document.testform.radiogroup1[i].value+"<br>");
+ }
+//-->
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Special IE Windows</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/jscript">
+<!--         
+var myPopup = window.createPopup(); //定义弹出窗口
+function showPopup()  //函数：显示弹出窗口
+{
+var popupBody = myPopup.document.body;
+//定义页面相关属性
+popupBody.style.backgroundColor = "#ffff99";
+popupBody.style.border = "solid black 1px";
+//页面内容
+popupBody.innerHTML = "Click outside this window to close or press hide button.";myPopup.show(50, 100, 350, 25, document.body);  //显示弹出窗口
+}
+function makeModalDialog() //函数：显示模式窗口
+{
+// 在模式窗口中显示14.18.htm的页面内容
+showModalDialog("14.18.htm",window,"status:false;dialogWidth:300px;dialogHeight:100px;help:no;status:no;");
+}
+function makeModelessDialog() //函数：显示无模式窗口
+{
+var HTMLoutput = "";
+//格式化该无模式窗口的页面样式
+myModelessDialog = showModelessDialog("blank.htm",window,"status:false; dialogWidth:200px;dialogHeight:300px;help:no;status:no;");
+modelessBody = myModelessDialog.document.body;
+modelessBody.style.backgroundColor = "#ffcc33"
+//格式化该无模式窗口的页面内容
+HTMLoutput += "<html><head><title>Modeless Dialog</title></head>";
+HTMLoutput += "<body><h1>Important messages in this modeless window</h1><hr>";
+HTMLoutput += "<form><div align='center'><input type='button' value='close' onclick='self.close();'>";
+HTMLoutput +="</div></form></body></html>";
+modelessBody.innerHTML = HTMLoutput; //显示输出
+}
+// -->
+</script>
+</head>
+<body>
+<form name="mainform" id="mainform" action="#" method="get">
+<!--通过onclick调用makeModalDialog()函数来显示模式窗口-->
+<input type="button" value="模式窗口" onclick="makeModalDialog();">
+<!--通过onclick调用makeModelessDialog()函数来显示无模式窗口-->
+<input type="button" value="无模式窗口" onclick="makeModelessDialog();">
+<!--通过onclick调用showPopup()函数来显示弹出窗口-->
+<input type="button" value="显示弹出窗口" onclick="showPopup();">
+<!--通过onclick调用myPopup.hide()函数来隐藏弹出窗口-->
+<input type="button" value="隐藏弹出窗口" onclick="myPopup.hide();">
+</form>
+</body>
+</html>

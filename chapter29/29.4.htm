@@ -1,0 +1,51 @@
+<HTML><HEAD><TITLE>循环滚动的多幅广告</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.2800.1264" name=GENERATOR>
+<link href="css.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY leftMargin=0 topMargin=2 marginheight="0" marginwidth="0">
+<CENTER>
+<p>
+<h1>循环滚动的多幅广告</h1><p>
+  <TABLE 
+style="BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #666666 1px solid; BORDER-LEFT: #666666 1px solid; BORDER-BOTTOM: #666666 1px solid" 
+cellSpacing=0 cellPadding=0 width=750 align=center border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV id=demo style="OVERFLOW: hidden; WIDTH: 100%; COLOR: #ffffff">
+      <TABLE cellSpacing=0 cellPadding=0 align=left border=0 cellspace="0">
+        <TBODY>
+        <TR>
+          <TD id=demo1 vAlign=top><table width="1710" height="116"  border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="171" background="pic_bg.jpg"><div align="center">内容一</div></td>
+              <td width="171" background="pic_bg.jpg"><div align="center">内容二</div></td>
+              <td width="171" background="pic_bg.jpg"><div align="center">内容三</div></td>
+              <td width="171" background="pic_bg.jpg"><div align="center">内容四</div></td>
+              <td width="171" background="pic_bg.jpg"><div align="center">内容五</div></td>
+              <td width="171" background="pic_bg.jpg"><div align="center">内容六</div></td>
+              <td width="171" background="pic_bg.jpg"><div align="center">内容七</div></td>
+              <td width="171" background="pic_bg.jpg"><div align="center">内容八</div></td>
+              <td width="171" background="pic_bg.jpg"><div align="center">内容九</div></td>
+              <td width="171" background="pic_bg.jpg"><div align="center">内容十</div></td>
+            </tr>
+          </table></TD>
+          <TD id=demo2 vAlign=top>&nbsp;</TD></TR></TBODY></TABLE></DIV>
+      <SCRIPT>
+var speed3=25//速度数值越大速度越慢
+demo2.innerHTML=demo1.innerHTML
+function Marquee(){
+if(demo2.offsetWidth-demo.scrollLeft<=0)
+demo.scrollLeft-=demo1.offsetWidth
+else{
+demo.scrollLeft++
+}
+}
+var MyMar=setInterval(Marquee,speed3)
+demo.onmouseover=function() {clearInterval(MyMar)}
+demo.onmouseout=function() {MyMar=setInterval(Marquee,speed3)}
+</SCRIPT>
+    </TD></TR></TBODY></TABLE></TD></TR></TABLE>
+</CENTER>
+</BODY></HTML>

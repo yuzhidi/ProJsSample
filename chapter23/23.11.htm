@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>垂直滚动公告板</title>
+<script>
+<!--
+lstart=200
+loop=true
+speed=350 
+pr_step=5 
+function makeObj(obj,nest){
+nest=(!nest) ? '':'document.'+nest+'.'
+this.css=(document.layers) ? eval(nest+'document.'+obj):eval(obj+'.style')
+this.scrollHeight=document.layers?this.css.document.height:eval(obj+'.offsetHeight')
+this.up=goUp
+this.obj = obj + "Object"
+eval(this.obj + "=this")
+return this
+}
+function goUp(speed){
+if(parseInt(this.css.top)>-this.scrollHeight){
+this.css.top=parseInt(this.css.top)-pr_step
+setTimeout(this.obj+".up("+speed+")",speed)
+
+}else if(loop) {
+this.css.top=lstart
+eval(this.obj+".up("+speed+")")
+}
+}
+function slideInit(){
+oSlide=makeObj('divNews','divCont')
+oSlide.css.top=lstart
+oSlide.up(speed)
+}
+onload=slideInit
+//-->
+</script>
+
+</head>
+<body>
+<center><h1>垂直滚动公告板</h1></center>
+<div id="divCont"
+style="position:absolute; width:300; height:100; top:60; left:100; clip:rect(0,250,150,0)"><div
+id="divNews" style="position:absolute; top:0; left:0">
+<p>这是一个滚动看板<br>
+但并不是大家经常看到的<br>
+用<font face="Arial">java</font>实现的那种<br>
+它采用<font face="Arial">javacript</font>语言和<font face="Arial">DHTML</font>的层<br>
+所以你看到的原代码<br>
+不需要固定在form框里或者表格里<br>
+它是用的<font face="Arial">&lt;div&gt;&lt;/div&gt;</font><br>
+你可以把这段代码放在<font face="Arial">HTML<br>
+</font>代码里的任何地方<br>
+都不会影响它出现的位置</p>
+<p>这是一个用处很大的程序<br>
+可以用在网页里作广告或则告示板<br>
+赶快<font face="Arial">Copy</font>到你的主页里试试吧！</p>
+</div></div>
+</body>
+<html>

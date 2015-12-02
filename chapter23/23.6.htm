@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>IE 中的DirectAnimation</title>
+</head>
+<body>
+<center>
+<h1>IE 中的DirectAnimation</h1>
+<OBJECT ID="DirectAnimationControl" 
+        STYLE="position:absolute;left:10%;top:100;width:90%;height:80%"
+        CLASSID="CLSID:B6FFC24C-7E13-11D0-9B47-00C04FC2F51D">
+</OBJECT>
+</center>
+<script language="javascript">
+<!--
+var MeterLibrary=DirectAnimationControl.MeterLibrary;
+var surface=MeterLibrary.NewDrawingSurface();
+surface.Fillcolor(MeterLibrary.ColorRgb(1,1,0));
+surface.FillPath(MeterLibrary.Polyline(Array(0,0,400,0,400,400,0,400,0,0)));
+surface.Fillcolor(MeterLibrary.ColorRgb(0,1,0));
+surface.FillPath(MeterLibrary.Polyline(Array(200,0,0,400,400,400,200,0)));
+surface.Fillcolor(MeterLibrary.ColorRgb(0,0,1));
+surface.FillPath(MeterLibrary.Polyline(Array(0,0,-400,0,-400,-400,0,-400,0,0)));
+surface.Fillcolor(MeterLibrary.ColorRgb(1,0,0));
+surface.FillPath(MeterLibrary.Polyline(Array(-200,-400,-400,0,0,0,-200,-400)));
+var axis=MeterLibrary.Vector3(20,20,20);
+var start=MeterLibrary.point2(-2000,-1000);
+var end=MeterLibrary.Point2(2000,1000);
+var Sweep=MeterLibrary.FollowPath(MeterLibrary.Line(start,end),10);
+var Twist=MeterLibrary.Rotate3RateDegrees(axis,180).Duration(10).ParallelTransform2();
+DirectAnimationControl.Image=surface.image.Transform(Twist).Transform(Sweep).
+Transform(MeterLibrary.Scale2(1./12000.,1./12000.));
+DirectAnimationControl.start();
+//-->
+</script>
+</body>
+</html>

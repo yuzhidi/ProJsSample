@@ -1,0 +1,145 @@
+<html>
+<head><title>复选框与单选按钮的组合使用</title></head>
+
+<body>
+<form name="form1">
+<center><h1>请选择一件商品</h1></center>
+<br><br>
+<table border bgcolor=cyan width=300 align=left>
+<tr><td><input type=radio name=RadioGroup onClick=radio1Clicked()>Plain</tr></td>
+<tr><td><input type=radio name=RadioGroup onClick=radio2Clicked()>Chocolate</tr></td>
+<tr><td><input type=radio name=RadioGroup onClick=radio3Clicked()>Jelly</tr></td>
+<tr><td><input type=radio name=RadioGroup onClick=radio4Clicked()>Cream</tr></td>
+<tr><td><input type=radio name=RadioGroup onClick=radio5Clicked()>Strawberry</tr></td>
+</table>
+
+<table border bgcolor=cyan width=300 align=left>
+<tr><td><input type=checkbox name=Check1 onClick=check1Clicked()>Plain</tr></td>
+<tr><td><input type=checkbox name=Check2 onClick=check2Clicked()>Sprinkless</tr></td>
+<tr><td><input type=checkbox name=Check3 onClick=check3Clicked()>Powerdered sugar</tr></td>
+<tr><td><input type=checkbox name=Check4 onClick=check4Clicked()>Frosted</tr></td>
+<tr><td><input type=checkbox name=Check5 onClick=check5Clicked()>Filled</tr></td>
+</table>
+
+<br clear=all><br>
+<center><input type=text name=TextBox size=30 align=center></center>
+</form>
+</body>
+
+<script language="javascript">
+<!--
+
+function radio1Clicked()
+{
+
+clearCheckBoxes()
+setCheckBox(1)
+cost=calculateCost()
+
+}
+function radio2Clicked()
+{
+clearCheckBoxes()
+setCheckBox(4)
+calculateCost()
+
+}
+function radio3Clicked()
+{
+clearCheckBoxes()
+setCheckBox(3)
+setCheckBox(5)
+calculateCost()
+
+}
+function radio4Clicked()
+{
+clearCheckBoxes()
+setCheckBox(2)
+setCheckBox(3)
+setCheckBox(5)
+calculateCost()
+
+}
+function radio5Clicked()
+{
+clearCheckBoxes()
+setCheckBox(4)
+setCheckBox(5)
+calculateCost()
+
+}
+function check1Clicked()
+{
+calculateCost()
+
+}
+function check2Clicked()
+{
+calculateCost()
+
+}
+function check3Clicked()
+{
+calculateCost()
+
+}
+function check4Clicked()
+{
+calculateCost()
+
+}
+function check5Clicked()
+{
+calculateCost()
+
+}
+
+function clearCheckBoxes()
+{
+document.form1.Check1.checked=false
+document.form1.Check2.checked=false
+document.form1.Check3.checked=false
+document.form1.Check4.checked=false
+document.form1.Check5.checked=false
+
+}
+
+function setCheckBox(number)
+{
+switch(number)
+{
+case 1:
+document.form1.Check1.checked=true
+break;
+case 2:
+document.form1.Check2.checked=true
+break;
+case 3:
+document.form1.Check3.checked=true
+break;
+case 4:
+document.form1.Check4.checked=true
+break;
+case 5:
+document.form1.Check5.checked=true
+break;
+}
+}
+
+function calculateCost()
+{
+var cost=0;
+if(document.form1.Check1.checked){cost=cost+0.50;}
+if(document.form1.Check2.checked){cost=cost+0.50;}
+if(document.form1.Check3.checked){cost=cost+0.50;}
+if(document.form1.Check4.checked){cost=cost+0.50;}
+if(document.form1.Check5.checked){cost=cost+0.50;}
+
+document.form1.TextBox.value="Total cost:$"+cost;
+}
+
+
+//-->
+</script>
+</html>

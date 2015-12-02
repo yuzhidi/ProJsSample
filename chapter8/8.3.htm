@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>exec()方法应用</title>
+<script language = "JavaScript">
+   var myString="aaa 111 bbb 222 ccc 1111 222ddd";
+   var regex = /111/;    //创建正则表达式对象
+   var array=regex.exec(myString);
+   if (array){
+      var str="找到了匹配子串!"+"\n返回数组的值为:"+array+"\n数组元素个数："
+                   +array.length+"\n被搜索的字符串为："+array.input
+                   +"\n匹配子串的开始位置为："+array.index
+                   +"\n匹配子串后面第一个字符的位置为："+regex.lastIndex;
+            alert(str);
+      }
+      else{
+            alert("未找到匹配子串！！");
+      }
+</script>
+<body></body>
+</html>

@@ -1,0 +1,22 @@
+<script language="javascript">
+<!--
+function toHex(dec)                        //转换函数
+{
+hexChars = "0123456789ABCDEF";      //定义16进制基本字符
+if(dec>255){                       //大于255的，不输出
+return null;
+}
+var i = dec % 16;
+var j = (dec - i)/16;
+result = "0x";                          //十六进制前置标志字符
+result += hexChars.charAt(j);
+result += hexChars.charAt(i);
+return result;                          //返回值，为十六进制表示
+}
+for(var k=0;k<256;k++)                     //输出256以下的整数
+{
+if(k%16 == 0){document.write("<br>");}    //每16个一行
+document.write(toHex(k)+"&nbsp;");      //输出显示，以空格分隔
+}
+//-->
+</script>

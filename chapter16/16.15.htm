@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Simple DOM Editor 0.2</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+var dangerousElements = {'html':true,'head':true,'body':true,'script':true,'style':true,'frameset':true,'frame':true};
+var emptyElements ={'hr':true,'meta':true,'br':true,'area':true,'base':true,'basefont':true,'link':true,'frame':true};
+function addElement(theElement,theText)
+{
+ if (theElement in dangerousElements)
+   {
+       alert("Error: Element not allowed");
+       return;
+      }
+ var newNode = document.createElement(theElement);
+ if ((theText.length> 0) && !(theElement in emptyElements))
+  {
+   var newText = document.createTextNode(theText);
+   newNode.appendChild(newText);
+  }
+ else
+   alert("Warning: Do not add text to an empty element");
+ document.getElementById('insertHere').appendChild(newNode);
+}
+//-->
+</script>
+</head>
+<body>
+<div id="insertHere" style="width: 80%; border-style: dashed; border-width: 1px;">
+      &nbsp;
+</div>
+<form action="#" method="get" name="theForm" id="theForm">
+ <input type="text" value="i" name="theTag" id="theTag">
+ <input type="text" name="theText" id="theText" value="Testing 1..2..3..">
+ <input type="button" value="Create" onclick="addElement(document.theForm.theTag.value,document.theForm.theText.value);" >
+</form>
+</body>
+</html>

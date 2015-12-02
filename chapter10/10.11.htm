@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>禁用鼠标右键</title>
+<script language=javascript>
+<!--
+function click() 
+{
+if (event.button==2)
+{
+alert('你想看什么？');
+} 
+}
+document.onmousedown=click;
+//-->
+</script>
+</head>
+<body><!--适用于IE -->
+<center>
+<h1>禁用鼠标右键示例</h1><br><br>
+<h7>请在页面上单击鼠标右键，看看会出现什么</h7>
+</center>
+</body>
+</html>

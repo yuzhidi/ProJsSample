@@ -1,0 +1,25 @@
+<script language="JavaScript">
+<!--
+var m=1;
+var n=1;
+for(;;)  //这里使用了无限循环语句
+{
+for(;;)
+{
+if(n*m<10) //对所有的一位数增加前置空格。
+{
+document.write("&nbsp;"); 
+}
+document.write(n*m+"&nbsp;");//显示乘法表的行，两数之间有空格分开。
+n++
+if(n>m)
+break;
+}
+document.write("<br>");    //换行
+m++;
+n=1;
+if(m>9)
+break;
+}
+//-->
+</script>

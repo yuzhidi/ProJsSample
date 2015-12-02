@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>设置表格属性</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+</head>
+<body>
+<center><h1>设置表格属性</h1></center><p>
+<!--表格开始-->
+<table border="1" frame="box" id="testTable">
+<!--标题-->
+<caption>Test Table</caption>
+<thead><!--表头-->
+<tr>
+<th>Product</th>
+<th>SKU</th>
+<th>Price</th>
+</tr>
+</thead>
+<!-- 这里是脚注，本例中放在了表体之前-->
+<tfoot>
+<tr>
+<th colspan="3">This has been an HTML 4 table example, thanks for reading</th>
+</tr>
+</tfoot>
+<tbody> <!--表体之一-->
+<tr>
+<th colspan="3" align="center">Robots</th> <!--表体一的头部-->
+</tr>
+<tr>
+<td>Trainer Robot</td>
+<td>TR-456</td>
+<td>$56,000</td>
+</tr>
+<tr>
+<td>Guard Dog Robot</td>
+<td>SEC-559</td>
+<td>$5,000</td>
+</tr>
+<tr>
+<td>Friend Robot</td>
+<td>AG-343</td>
+<td>$124,000</td>
+</tr>
+</tbody>
+<tbody><!--表体之二-->
+<tr>
+<th colspan="3" align="center">Jet Packs</th><!--表体二的头部-->
+</tr>
+<tr>
+<td>Economy</td>
+<td>JP-3455E6</td>
+<td>$6,000</td>
+</tr>
+<tr>
+<td>Deluxe</td>
+<td>JP-9999d</td>
+<td>$15,000</td>
+</tr>
+</tbody>
+</table>
+<br clear="all"><hr><br clear="all">
+<script type="text/javascript">
+<!--
+//通过id获取表格属性
+var theTable = document.getElementById('testTable');
+//-->
+</script>
+<!--以下是控制表单-->
+<form action="#" method="get">
+<strong>Alignment:</strong> 
+<!--通过onchange来设置表格在文档中的对齐方式-->
+<select onchange="theTable.align = this.options[this.selectedIndex].text;">
+<option>left</option>
+<option>center</option>
+<option>right</option>
+</select>
+<strong>Background Color:</strong> 
+<!--通过onchange来设置表格背景颜色-->
+<select onchange="theTable.bgColor = this.options[this.selectedIndex].text;">
+<option>white</option>
+<option>red</option>
+<option>blue</option>
+<option>yellow</option>
+<option>orange</option>
+<option>green</option>
+<option>black</option>
+</select>
+<strong>Frames:</strong> 
+<!--通过onchange来设置表格Frame样式-->
+<select onchange="theTable.frame = this.options[this.selectedIndex].text;">
+<option>above</option>
+<option>below</option>
+<option>border</option>
+<option>box</option>
+<option>hsides</option>
+<option>vsides</option>
+<option>lhs</option>
+<option>rhs</option>
+<option>void</option>
+</select>
+<strong>Rules:</strong>
+<!--通过onchange来设置表格rules方式-->
+<select onchange="theTable.rules = this.options[this.selectedIndex].text;">
+<option>all</option>
+<option>cols</option>
+<option>groups</option>
+<option>none</option>
+<option>rows</option>
+</select>
+<br><br>
+<strong>Border:</strong>
+<!--通过onchange来设置表格边框宽度-->
+<input type="text" size="2" maxlength="2" value="1" 
+onchange="theTable.border = this.value;">
+<strong>Cell Padding:</strong>
+<!--通过onchange来设置表元填充方式-->
+<input type="text" size="2" maxlength="2" value="1" 
+onchange="theTable.cellPadding = this.value;">
+<strong>Cell Spacing:</strong>
+<!--通过onchange来设置表元留空方式-->
+<input type="text" size="2" maxlength="2" value="1" 
+onchange="theTable.cellSpacing = this.value;">
+</form>
+</body>
+</html>

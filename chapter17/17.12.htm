@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Numbers-Only Field Mask Demo</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/JavaScript">
+<!--
+function isNumberInput(field, event) 
+{
+  var key, keyChar;
+
+  if (window.event)
+    key = window.event.keyCode;
+  else if (event)
+    key = event.which;
+  else
+    return true;
+  // Check for special characters like backspace
+  if (key == null || key == 0 || key == 8 || key == 13 || key == 27)
+    return true;
+  // Check to see if it's a number
+  keyChar =  String.fromCharCode(key);
+  if (/\d/.test(keyChar)) 
+    {
+     window.status = "";
+     return true;
+    } 
+  else 
+   {
+    window.status = "本区域只接受数字输入";
+    return false;
+   }
+}
+//-->
+</script>
+</head>
+<body>
+<center>
+<h1>按键屏蔽示例</h1>
+在下面的输入框中，只接受数字的输入，若输入其他字符，会被屏蔽。
+<form name="testform" id="testform" action="#" method="get">
+Robot Serial Number:
+<input type="text" name="serialnumber" id="serialnumber"
+ size="10" maxlength="10"
+ onkeypress="return isNumberInput(this, event);" title="Serial number contains only digits">
+</form>
+</center>
+</body>
+</html>

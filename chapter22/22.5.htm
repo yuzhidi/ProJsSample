@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>在IE中拖动图像</title>
+</head>
+<body>
+<center>
+<h1>在IE中拖动图像</h1>
+</center>
+<div style="position:relative" id=ImageDiv>
+<img id="image2" style="container:positioned;position:absolute;top:50px;left:250px;width:236px;height=108px;" src="1145.GIF">
+<img style="container:positioned;position:absolute;top:50px;left:60px;width:236px;height=108px;" src="1146.GIF" onmouseMove=moveImage()>
+</div>
+<script language="JavaScript">
+function moveImage()
+{
+if(window.event.button!=1)
+{
+return;
+}
+with(window.event.srcElement.style)
+{
+pixelLeft=window.event.x-236/2-document.all.ImageDiv.offsetLeft;
+pixelTop=window.event.y-118/2-document.all.ImageDiv.offsetTop;
+}
+window.event.returnValue=false;
+}
+</script>
+</body>
+</html>

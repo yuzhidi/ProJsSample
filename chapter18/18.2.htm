@@ -1,0 +1,43 @@
+<html>
+<head><title>单选按钮示例</title></head>
+<body>
+<form name=form1>
+<center>
+<h1>请选择一个单选按钮</h1>
+<table border bgcolor=cyan width=200>
+<tr><td><input type=radio name=RadioButtons onclick=radio1Click()>Radio 1</td></tr>
+<tr><td><input type=radio name=RadioButtons onclick=radio2Click()>Radio 2</td></tr>
+<tr><td><input type=radio name=RadioButtons onclick=radio3Click()>Radio 3</td></tr>
+<tr><td><input type=radio name=RadioButtons onclick=radio4Click()>Radio 4</td></tr>
+<tr><td><input type=radio name=RadioButtons onclick=radio5Click()>Radio 5</td></tr>
+</table>
+<br><br>
+<input type=text name="Textbox" size=35>
+</center>
+</form>
+</body>
+<script language="javascript">
+<!--
+function radio1Click()
+{
+document.form1.Textbox.value="Radio box 1 was clicked.";
+}
+function radio2Click()
+{
+document.form1.Textbox.value="Radio box 2 was clicked.";
+}
+function radio3Click()
+{
+document.form1.Textbox.value="Radio box 3 was clicked.";
+}
+function radio4Click()
+{
+document.form1.Textbox.value="Radio box 4 was clicked.";
+}
+function radio5Click()
+{
+document.form1.Textbox.value="Radio box 5 was clicked.";
+}
+//-->
+</script>
+</html>

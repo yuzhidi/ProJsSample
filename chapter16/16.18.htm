@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>读取表格属性</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+</head>
+<body>
+<center><h1>读取表格属性</h1></center><p>
+<!--表格开始-->
+<table border="1" frame="box" id="testTable">
+<!--标题-->
+<caption>Test Table</caption>
+<thead><!--表头-->
+<tr>
+<th>Product</th>
+<th>SKU</th>
+<th>Price</th>
+</tr>
+</thead>
+<!-- 这里是脚注，本例中放在了表体之前-->
+<tfoot>
+<tr>
+<th colspan="3">This has been an HTML 4 table example, thanks for reading</th>
+</tr>
+</tfoot>
+<tbody> <!--表体之一-->
+<tr>
+<th colspan="3" align="center">Robots</th> <!--表体一的头部-->
+</tr>
+<tr>
+<td>Trainer Robot</td>
+<td>TR-456</td>
+<td>$56,000</td>
+</tr>
+<tr>
+<td>Guard Dog Robot</td>
+<td>SEC-559</td>
+<td>$5,000</td>
+</tr>
+<tr>
+<td>Friend Robot</td>
+<td>AG-343</td>
+<td>$124,000</td>
+</tr>
+</tbody>
+<tbody><!--表体之二-->
+<tr>
+<th colspan="3" align="center">Jet Packs</th><!--表体二的头部-->
+</tr>
+<tr>
+<td>Economy</td>
+<td>JP-3455E6</td>
+<td>$6,000</td>
+</tr>
+<tr>
+<td>Deluxe</td>
+<td>JP-9999d</td>
+<td>$15,000</td>
+</tr>
+</tbody>
+</table>
+<br clear="all"><hr><br clear="all">
+<script type="text/javascript">
+<!--
+//通过id获取表格属性
+var theTable = document.getElementById('testTable');
+//-->
+</script>
+<!--控制表单-->
+<form name="testForm" id="testForm">
+<!--文本框，用来输入要删除的行的序号-->
+<input type="text" name="rowtodelete" id="rowtodelete" size="2" 
+maxlength="2" value="1">
+<!--通过onclick调用theTable.deleteRow ()来删除行-->
+<!--其中theTable.rows.length> 0表示存在行-->
+<input type="button" value="删除行" 
+onclick="if (theTable.rows.length> 0) 
+theTable.deleteRow (document.testForm.rowtodelete.value);">
+<!--文本框，用来输入要在其后插入的行的序号-->
+<input type="text" name="rowtoinsert" id="rowtoinsert" size="2" 
+maxlength="2" value="1">
+<!--通过onclick调用theTable.insertRow()来插入行-->
+<input type="button" value="插入行" 
+onclick="theTable.insertRow(document.testForm.rowtoinsert.value);"><p>
+<!--通过onclick调用theTable.deleteTHead()来删除表头-->
+<input type="button" value="删除 <thead>" onclick="theTable.deleteTHead();">
+<!--通过onclick调用theTable.deleteTFoot()来删除脚注-->
+<input type="button" value="删除 <tfoot>" onclick="theTable.deleteTFoot();">
+<!--通过onclick调用theTable.deleteCaption()来删除标题-->
+<input type="button" value="删除 <caption>" onclick="theTable.deleteCaption();">
+</form>
+</body>
+</html>

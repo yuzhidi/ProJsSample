@@ -1,0 +1,23 @@
+<html>
+<head><title>JavaScript中访问Java Applet</title></head>
+<body>
+<h1>JavaScript中访问Java Applet</h1><p>
+<script language="JavaScript">
+<!--
+function SetText()
+{
+//必须将text属性使用public关键字来定义，JavaScript才可以访问该属性。
+document.app.text=content.value;
+// repaint方法是MyApplet从父类继承来的，用于通知MyApplet进行重画，
+//从而导致MyApplet中的paint方法能够被调用。
+document.app.repaint();
+}
+//-->
+</script>
+<applet code="MyApplet.class" width="100" height="28" name="app">
+你的浏览器不支持 Java Applet！<p>
+</applet><p>
+<input type="text" value="输入Applet的显示内容" name="content">
+<input type="button" value="改变文本" onclick="SetText()">
+</body>
+</html>

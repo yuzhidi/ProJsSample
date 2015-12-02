@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DOM Test</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312" >
+</head>
+<body>
+<h1>DOM Test Heading</h1>
+<hr >
+<!-- 这里是注释 -->
+<p>A paragraph of <em>text</em> is just an example</p>
+<ul>
+<li><a href="http://www.yahoo.com">Yahoo!</a></li>
+</ul>
+<form name="testform" id="testform" action="#" method="get">
+Node Name: <input type="text" id="nodeName" name="Node Name" ><br >
+Node Type: <input type="text" id="nodeType" name="Node Type" ><br >
+Node Value: <input type= "text" id="nodeValue" name="Node Value" ><br >
+</form>
+<script language="javascript">
+<!--
+function update(currentElement)
+{
+//存储当前结点的名称
+window.document.testform.nodeName.value = currentElement.nodeName;
+//存储当前结点的类型
+window.document.testform.nodeType.value = currentElement.nodeType;
+//存储当前结点的值
+window.document.testform.nodeValue.value = currentElement.nodeValue;
+}
+function nodeMove(currentElement, direction)
+{
+switch (direction)
+{
+case "previousSibling": 
+if (currentElement.previousSibling) 
+//如果存在前一兄弟结点，则存储
+currentElement = currentElement.previousSibling;
+else 
+//如果不存在前一兄弟结点，则给出提示
+alert("不存在前一兄弟结点");  
+break;
+case "nextSibling":
+if (currentElement.nextSibling)
+//如果存在后一兄弟结点，则存储
+currentElement = currentElement.nextSibling;
+else
+//如果不存在后一兄弟结点，则给出提示
+alert("不存在后一兄弟结点");
+break;   
+case "parent": 
+if (currentElement.parentNode)
+//如果存在双亲结点，则存储
+currentElement = currentElement.parentNode;
+else
+//如果不存在双亲结点，则给出提示
+alert("无双亲结点");
+break;
+case "firstChild":
+if (currentElement.hasChildNodes())
+//如果存在第一个子结点，则存储
+currentElement = currentElement.firstChild;
+else
+//如果不存在第一个子结点，则给出提示
+alert("无子结点");
+break;
+case "lastChild":
+if (currentElement.hasChildNodes())
+//如果存在最后一个子结点，则存储
+currentElement = currentElement.lastChild;
+else
+//如果不存在最后一个子结点，则给出提示
+alert("无子结点");
+break;
+//如果以上都不可能，则给出提示
+default: alert("Bad direction call");
+    } 
+  update(currentElement); //调用函数，读取结点相关属性值
+  return currentElement;  //返回存储的值
+}
+var currentElement = document.documentElement;
+update(currentElement);
+//-->
+</script>
+<form action="#" method="get">
+ <input type="button" value="双亲结点" 
+        onclick="currentElement=nodeMove(currentElement,'parent');" >
+ <input type="button" value="第一个子结点"
+        onclick="currentElement=nodeMove(currentElement,'firstChild');" >
+ <input type="button" value="最后一个子结点"
+        onclick="currentElement=nodeMove(currentElement,'lastChild');" >
+ <p>
+ <input type="button" value="后一兄弟结点"
+        onclick="currentElement=nodeMove(currentElement,'nextSibling');" >
+ <input type="button" value="前一兄弟结点"
+        onclick="currentElement=nodeMove(currentElement,'previousSibling');" >
+ <input type="button" value="返回根结点"
+        onclick="currentElement=document.documentElement; update(currentElement);" >
+</form>
+</body>
+</html>

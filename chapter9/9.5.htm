@@ -1,0 +1,22 @@
+<html>
+<head><title>事件调用函数</title></head>
+<body>
+<h1>事件调用函数</h1><p>
+<script type="text/javascript">
+<!--
+function showMessage() 
+{
+  alert("Ouch! Get off me!");
+}
+//-->
+</script>
+<form action="#" method="get" name="myForm" id="myForm">
+<button id="myButton">将鼠标移过来！</button>
+<script type="text/javascript">
+<!--
+document.getElementById("myButton").onmouseover = showMessage;
+//-->
+</script>
+</form>
+</body>
+</html>

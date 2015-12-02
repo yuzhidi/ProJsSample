@@ -1,0 +1,45 @@
+<html>
+<head><title>在表单中显示打字效果</title></head>
+<body>
+<h1>在表单中显示打字效果</h1><p>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- 
+var max=0;
+function textlist() 
+{
+max=textlist.arguments.length; //存储texlist的长度
+for (i=0; i<max; i++)
+this[i]=textlist.arguments[i]; //存储textlist中的每段话
+}
+//存储要显示的文字
+tl = new textlist( " 你是生活在新时代的第一代人，这个时代在一个差不多一切都会发生的纪元里提供了对未来无限的选择。","除非我们能够知道变化的范围，看到它们的潜力，并抓住机遇，我们每一个人才能作出选择，并在一生中继续不断地作出选择。","你孩子的世界不会与从前一样。他们的未来，也依赖于他们一生中掌握新概念、作出新选择、不断学习不断适应的能力。","发达国家已经开始从工业社会向信息时代的飞跃。在信息时代，人的智能和知识将作为社会主要资本不断代替机器和厂房。","这个新时代充满残酷的替代选择。对于那些拥有新知识的人来说，新时代意味着一个充满机遇的世界；对于那些没有新知识的人来说，新时代则意味着，当旧工作消失、旧体制崩溃时，他们将面临失业、贫穷、绝望的前景。");
+var x = 0; pos = 0;
+var l = tl[0].length;
+function textticker() 
+{
+//在已显示的文本后添加“_”，以增强打字的视觉效果
+document.tickform.tickfield.value = tl[x].substring(0, pos) + "_";
+if(pos++ == l) //如果l表示的是一段文字的长度，则打印这段文字
+{
+pos = 0; 
+setTimeout("textticker()", 400); //值越小速度越慢
+//如果所有文字打印完毕，则将l设置为textlist的长度，
+//这里的max是前面代码定义的，保存了textlist的长度
+if(++x == max) x = 0; 
+l = tl[x].length;
+} 
+//如果l表示的不是一段文字的长度，而是textlist的长度，则刷新，重新开始打印
+else setTimeout("textticker()", 200);
+}
+//-->
+</script>
+</HEAD>
+<body>
+<form name=tickform>
+<body bgcolor="#fef4d9" OnLoad="textticker()">
+<!--建立一个文本区，并将其背景色设置为黑色，将在这里显示文本效果-->
+<textarea name=tickfield rows=5 cols=60 style="background-color: rgb(0,0,0); color: rgb(255,255,255); cursor: default; font-family: Arial; font-size: 12px" wrap=virtual>
+</textarea>
+</form>
+</body>
+</html>

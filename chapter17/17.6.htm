@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Limited Text Area</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+</head>
+<body>
+<h1>限制输入长度的文本区示例</h1>
+<form name="myform" id="myform" action="#" method="get">
+<label>说明:<br>
+<textarea name="comments" id="comments" rows="4" cols="40"
+onkeypress="return (document.myform.comments.value.length < 100);">
+本区域中，最多允许输入100个字符。
+</textarea>
+</label>
+</form>
+</body>
+</html>

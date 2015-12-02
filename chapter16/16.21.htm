@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>改变页面样式</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<!--链接外部样式表文件，在下面的操作中，可以改变这里的链接-->
+<link id="styleLink" rel="stylesheet" href="red.css" type="text/css">
+</head>
+<body>
+<center><h1>改变页面样式</h1></center><p>
+通过选择下面的不同样式，可以改变页面样式。
+<script type="text/javascript">
+<!--
+function changeStyle(userStyle) //函数:改变样式
+{
+//使用用户选择的样式来代替默认链接的样式
+document.getElementById('styleLink').href=userStyle;
+}
+//-->
+</script>
+<form action="#" method="get">
+选择样式:
+<!--通过onchange调用changeStyle()改变外部样式表链接，其中的参数为用户选择的值-->
+<select onchange="changeStyle(this.options[this.selectedIndex].value);">
+<option value="red.css">Red Style 1</option>
+<option value="green.css">Green Style 2</option>
+<option value="blue.css">Blue Style 3</option>
+</select>
+</form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<script type="text/javascript">
+<!-- 
+ if (window.screen)
+  {                                // 判断用户屏幕分辨率
+   //如果用户显示器的显示颜色不低于8位（256色）
+   if (screen.colorDepth> 8)
+      //显示nonsafecolors.gif图片
+      document.writeln('<img src="nonsafecolors.gif">');
+   else
+      //否则，显示safecolors.gif图片
+document.writeln('<img src="safecolors.gif">');
+  }
+else
+   document.writeln('<img src="safecolors.gif">');
+// -->
+</script>
+<!-- 对于不支持JavaScript代码的浏览器：显示safecolors.gif图片 -->
+<noscript>
+  <img src="safecolors.gif">
+</noscript>

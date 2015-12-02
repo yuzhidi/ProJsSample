@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>访问表单元素</title>
+<meta http-equiv="content-type" content="text/html; charset=gb2312">
+<script type="text/javascript">
+<!--
+function showProps(textfield)
+{   //定义一个str字符串，并为其赋值
+var str="Field Properties\n\n";
+//在字符串内添加文本域的名称信息
+str += "name: "+textfield.name + "\n";
+//在字符串内添加文本域的类型信息
+str += "type: "+textfield.type + "\n";
+//在字符串内添加文本域的大小信息
+str += "size: "+textfield.size + "\n";
+//在字符串内添加文本域的最大长度信息
+str += "maxLength: "+textfield.maxLength + "\n";
+//在字符串内添加文本域的值信息
+str += "value: "+textfield.value + "\n";
+//在字符串内添加文本域的默认值信息
+str += "defaultValue: "+textfield.defaultValue + "\n";
+alert(str); //弹出一个对话框，显示文本域的相关属性信息
+}
+//-->
+</script>
+</head>
+<body>
+<h1>访问表单元素</h1><p>
+<form action="#" method="get" id="myform" name="myform">
+<!--定义一个文本域，设置其相关属性，并为其赋初值-->
+<input type="text" id="field1" name="field1" size="20" maxlength="30"
+ value="initial value"><br>
+<!--通过onclick调用alert()，显示文本域的值-->
+<input type="button" value="读取域"
+onclick="alert(document.myform.field1.value);">
+<!--通过onclick改变文本域的值-->
+<input type="button" value="写入域"
+onclick="document.myform.field1.value='Changed!!!';">
+<!--通过onclick调用showProps()函数，显示文本域相关属性-->
+<input type="button" value="显示属性"
+onclick="showProps(document.myform.field1);">
+</form>
+</body>
+</html>

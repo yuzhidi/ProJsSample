@@ -1,0 +1,34 @@
+<HTML>
+<HEAD>
+<TITLE>IE Path控件示例</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+
+<h1>使用 IE Path 控件</h1>
+<FORM NAME=form1>
+<INPUT TYPE=BUTTON Value="Start Animation" onClick="startAnimation()">
+</FORM>
+</CENTER>
+<CENTER>
+<IMG ID=pathImage SRC="Image1.gif" STYLE="position:absolute;visibility:hidden">
+</CENTER>
+
+<OBJECT ID="pathControl"
+        classid="CLSID:D7A7D7C3-D47F-11D0-89D3-00A0C90833E6">
+<PARAM NAME="sHAPE" VALUE="PolyLine(10,305,190,280,155,255,130,230,100,205,75,185,95,165,130,135,160,110,200,100,220)">
+<PARAM NAME="Duration" VALUE="15">
+<PARAM NAME="Target" VALUE="pathImage">
+</OBJECT>
+<script language="javascript">
+<!--
+function startAnimation()
+{
+document.all.pathImage.style.visibility="visible";
+pathControl.Play();
+}
+//-->
+</script>
+</BODY>
+</HTML>

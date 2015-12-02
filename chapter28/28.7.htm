@@ -1,0 +1,47 @@
+<html>
+<head>
+<TITLE>总是悬浮的时钟</TITLE> 
+<script language=javaScript>
+<!--// 
+function clockon() {
+thistime= new Date()
+var hours=thistime.getHours()
+var minutes=thistime.getMinutes()
+var seconds=thistime.getSeconds()
+if (eval(hours) <10) {hours="0"+hours}
+if (eval(minutes) < 10) {minutes="0"+minutes}
+if (seconds < 10) {seconds="0"+seconds}
+thistime = hours+":"+minutes+":"+seconds
+if(document.all) {
+bgclocknoshade.innerHTML=thistime
+bgclockshade.innerHTML=thistime
+}
+if(document.layers) {
+document.bgclockshade.document.write('<div id="bgclockshade" style="position:absolute;visibility:visible;font-family:Verdana;color:FFAAAAA;font-size:120px;top:10px;left:52px">'+thistime+'</div>')
+document.bgclocknoshade.document.write('<div id="bgclocknoshade" style="position:absolute;visibility:visible;font-family:Verdana;color:DDDDDD;font-size:120px;top:10px;left:50px">'+thistime+'</div>')
+document.close()
+}
+var timer=setTimeout("clockon()",200)
+}
+//-->
+</script>
+</head>
+<body onLoad="clockon()">
+<center>
+春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少！<br>
+春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少！<br>
+春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少！<br>
+春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少！<br>
+春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少！<p>
+春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少！<br>
+春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少！<br>
+春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少！<br>
+春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少！<br>
+春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少！<br>
+</center>
+<div id="bgclockshade" style="position:absolute;visibility:visible;font-family:Arial;color:FF8888;font-size:120px;top:52px;left:52px"></div>
+<div id="bgclocknoshade" style="position:absolute;visibility:visible;font-family:Arial;color:DDDDDD;font-size:120px;top:50px;left:50px"></div>
+<div id="mainbody" style="position:absolute; visibility:visible">
+</div>
+</body>
+</html>
